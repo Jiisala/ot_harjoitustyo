@@ -1,8 +1,8 @@
-#My first readme!
+# My first readme!
 
 One needs to begin somewhere
 
-This does not need to bee *fancy* or *informative*.
+This does not need to bee **fancy** or **informative**.
 it Just needs some _markdown_
 
 maybe even a list
@@ -15,6 +15,6 @@ maybe even a list
 1. another
 1. yeaaa
    1. boiii
-   1. *!*
+   1.**!**
 
 
