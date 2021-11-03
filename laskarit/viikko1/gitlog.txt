@@ -1,0 +1,115 @@
+iisala@lx1-fuxi295:~/kurssit/ohte/ot_viikko1$ git log --stat | cat
+
+commit e6c736e300f4d7e83d697c4d0655963a7656e3e1
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 13:03:37 2021 +0200
+
+    lisää harjoittelua
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit b0ffb78a9ce138660305483905e2419c106aa6fe
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:59:09 2021 +0200
+
+    lisättiin tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 5281eeb9470d5299792606f29be50fdff4ac12ec
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:54:28 2021 +0200
+
+    harjoiteltiin -p käyttöä
+
+ eka.txt    | 20 +++++++++-----------
+ kolmas.txt |  7 ++++++-
+ 2 files changed, 15 insertions(+), 12 deletions(-)
+
+commit 8e7136e2249fe7b9c55114ee6883dbf108118f92
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:51:39 2021 +0200
+
+    uudelleen nimettiin tiedosto.txt -> eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit ab0166be35f14fcc1f3b324a6a74828d2ea2455c
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:49:58 2021 +0200
+
+    postettiin toinen.txt
+
+ toinen.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 26ef130b507bd4a07deb72d93228f38c7b9038d5
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:47:30 2021 +0200
+
+    postettiin tekstiä ja lisättiin dadaa
+
+ tiedosto.txt | 23 ++++++++++++++---------
+ 1 file changed, 14 insertions(+), 9 deletions(-)
+
+commit 14e0fd339a5d84fdbfcad4b5efda819a7e100c61
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:46:11 2021 +0200
+
+    lisättiin paljon tekstiää
+
+ tiedosto.txt | 60 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
+
+commit a2e0cf43e8e40c85f2b39e99ca31c83f3b724066
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:41:47 2021 +0200
+
+    lisättiin hakemisto ja tiedost
+
+ stuff/jokin.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2fbc94a59f299b20a98c8cf36d5f2b3d908b5445
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:40:16 2021 +0200
+
+    muutoksia tiedostoihin
+
+ kolmas.txt | 1 +
+ toinen.txt | 2 ++
+ 2 files changed, 3 insertions(+)
+
+commit 1bfc4acbd1f1d0a6980cb12af0c47a4e1e93712f
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:38:39 2021 +0200
+
+    kolmas tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f420b77488a55033121f2dff245bb37b4e418266
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 12:06:27 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 7b589959b94b41c704d15c213ddfd939dc7e0832
+Author: Jaakko <jiisala@gmail.com>
+Date:   Wed Nov 3 11:59:44 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
