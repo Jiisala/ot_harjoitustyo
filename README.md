@@ -6,5 +6,7 @@
 
 [Komentorivi.txt](https://github.com/Jiisala/ot_harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
-*Tämä on muutos*
+### Viikko 2
+
+[Vaatimusmäärittely](https://github.com/Jiisala/ot_harjoitustyo/tree/main/Dokumentaatio/vaatimusmaarittely.md)
 
