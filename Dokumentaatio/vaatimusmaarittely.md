@@ -40,7 +40,7 @@ Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista si
 * reitin  nimi
 * vaikeusaste 
   * käytetään boulderointiin sopivaa merkintätapaa joka alkaa numerosta 4 ja vaikeutuessaan kasvaa. 
-  * Numeron perään voidaan lisätä kirjain a, b, tai c, ja sen jälkeen + tai -)
+  * Numeron perään voidaan lisätä kirjain a, b, tai c, ja sen jälkeen + tai -
 *  kuva reitistä
 *  sijainti (vapaa tekstikenttä, ajankäytöllisistä syistä)
 *  lyhyt kuvaus 
