@@ -27,7 +27,7 @@ Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista si
   * samat järjestystoiminnot toimivat yhä
 
 * voidaan vaihtaa näkymä näyttämään sovllukseen lisätyt mutta omalta listalta puuttuvat reitit
-  * samat järjstystoiminnot toimivat täälläkin
+  * samat järjestystoiminnot toimivat täälläkin
 
 * Näkymässä on nappi josta voidaan lisätä uusi reitti
   * reitin tiedot kysytään omassa ikkunassaan
