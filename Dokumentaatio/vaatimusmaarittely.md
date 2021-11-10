@@ -2,7 +2,7 @@
 
 # Boulder Pal 9000
 
-Sovellus on tarkoitettu kiivettyjen kiipeilyreittien kirjaamiseen. Sovellukseen voi myös listata valmiiksi reittejä jotka aikoo kiivetä tulevaisuudessa. Toistaiseksi käyttäjät itse lisäävät reitit sovellukseen, 
+Sovellus on tarkoitettu kiivettyjen kiipeilyreittien kirjaamiseen. Sovellukseen voi myös listata valmiiksi reittejä jotka aikoo kiivetä tulevaisuudessa. Sovellus on tarkoitettu pääasiallisesti yhden ihmisen käyttöön, mutta siinä on joitakin ominaisuuksia jotka hyödyntävät myös useiden käyttäjien yhteistyötä. 
 
 ## Käyttäjät
 Sovellukseen voi luoda useampia käyttäjiä. Käyttäjät voivat selata sovellukseen jo lisättyjä reittejä ja lisätä niitä omalle listalleen, mutta eivät saa tietoa siitä, onko joku toinen käyttäjä jo kiivennyt kyseisen reitin. 
