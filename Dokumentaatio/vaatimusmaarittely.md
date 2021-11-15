@@ -48,7 +48,9 @@ Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista si
  
  
 ## Mahdollisia laajennusideoita jos jää aikaa
- 
+
+* käyttäjätietojen hallinta
+  * käyttäjä voi esim. vaihtaa nimensä ja salasanansa 
 * reitin poistaminen
   * reitin voi poistaa vain sama käyttäjä joka sen on lisännytkin
   * reittiä ei voi enää lisätä omaan näkymäänsä ja se poistuu kaikki reitit listaavasta näkymästä. 
