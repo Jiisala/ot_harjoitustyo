@@ -34,7 +34,7 @@ Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista si
   
 * Kun käyttäjä merkitsee reitin kiivetyksi, kysytään arvostelua (numeerinen), näiden arvostelujen keskiarvo näytetään reitin tiedoissa. 
 
-### Reitistä tallennetaan 
+#### Lisätystä reitistä tallennetaan ainakin: 
 
 * lisääjän käyttäjänimi 
 * reitin  nimi
