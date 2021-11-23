@@ -4,9 +4,10 @@ from services.logic import logic
 
 class NewUserView:
 
-    def __init__(self, root, handle_login_view) -> None:
+    def __init__(self, root, goto_login_view, goto_main_view) -> None:
         self._root = root
-        self._handle_login_view = handle_login_view
+        self._goto_login_view = goto_login_view
+        self._goto_main_view = goto_main_view
         self._frame = None
        
 
@@ -25,8 +26,10 @@ class NewUserView:
             print("here we check if pasword and pasword_check match, error handlig to be implemented")
         else:
             #Remember to add try/catch here also
-            print(name, pw)
+            #print(name, pw)
             logic.new_user(name, pw)
+            logic.login(name, pw)
+            self._goto_main_view()
 
 
     def _start(self):
@@ -53,7 +56,7 @@ class NewUserView:
         back_button = ttk.Button(
             master=self._frame,
             text="Back",
-            command=self._handle_login_view
+            command=self._goto_login_view
         )
 
         label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)

@@ -8,4 +8,4 @@ class TestUsers(unittest.TestCase):
         
     def test_add_user_adds_user(self):
         self.test_repo.add_user(User("name", "pw"))
-        self.assertEqual(len(self.test_repo.get_users()), 1)
+        self.assertEqual(len(self.test_repo.get_users()), 2) #(this is 2 because I added a test user, change later)

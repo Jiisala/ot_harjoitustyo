@@ -10,3 +10,8 @@ class Problem:
 
     def get_auth(self):
         return self._auth
+    
+    def get_name(self):
+        return self._name
+
+#problem = Problem()"

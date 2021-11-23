@@ -18,7 +18,7 @@ class UI:
 
     def _show_new_user_view(self):
         self._reset_view()
-        self._view = NewUserView(self._root, self._show_login_view)
+        self._view = NewUserView(self._root, self._show_login_view, self._show_main_view)
     
     def _show_main_view(self):
         
