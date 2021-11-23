@@ -7,7 +7,9 @@ Uuden käyttäjän luominen luo uuden käyttäjän ja lisää sen käyttäjiä y
 
 ### HUOM! 
 Sisään voi kirjautua joko luomalla uuden käyttäjän tai testikäyttäjänä
+
 tunnus: testaaja
+
 salasana: 0000
 
 ### Dokumentaatio
