@@ -9,7 +9,6 @@ class NewUserView:
         self._goto_login_view = goto_login_view
         self._goto_main_view = goto_main_view
         self._frame = None
-       
 
         self._start()
 
@@ -23,14 +22,13 @@ class NewUserView:
         if len(name) == 0 or len(pw) == 0:
             print("This will do a thing later on when I get around implementing it")
         elif pw != pw_check:
-            print("here we check if pasword and pasword_check match, error handlig to be implemented")
+            print(
+                "here we check if pasword and pasword_check match, error handlig to be implemented")
         else:
-            #Remember to add try/catch here also
-            #print(name, pw)
-            logic.new_user(name, pw)
-            logic.login(name, pw)
-            self._goto_main_view()
-
+            # Remember to add try/catch here also
+            if logic.new_user(name, pw):
+                logic.login(name, pw)
+                self._goto_main_view()
 
     def _start(self):
         self._frame = ttk.Frame(master=self._root)
@@ -39,7 +37,7 @@ class NewUserView:
 
         label = ttk.Label(master=self._frame,
                           text="Pleased to meet you, who ever you are")
-        
+
         user_name_label = ttk.Label(master=self._frame, text="Name:")
         pw_label = ttk.Label(master=self._frame, text="Password:")
         pw_check_label = ttk.Label(master=self._frame, text="Password again:")

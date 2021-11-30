@@ -8,7 +8,3 @@ ui = UI(window)
 ui.run()
 
 window.mainloop()
-
-
-
-

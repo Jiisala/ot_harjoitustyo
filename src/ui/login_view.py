@@ -1,6 +1,6 @@
 from tkinter import ttk
-from repositories.users import Users
-from services.logic import  logic
+#from repositories.users import Users
+from services.logic import logic
 
 
 class LoginView:
@@ -10,7 +10,6 @@ class LoginView:
         self._goto_show_new_user_view = goto_new_user_view
         self._goto_show_main_view = goto_show_main_view
         self._frame = None
-        
 
        # self._root.configure(background= "black")
 
@@ -18,12 +17,11 @@ class LoginView:
 
     def destroy(self):
         self._frame.destroy()
-    
+
     def _login_button_func(self):
         name = self.user_name_field.get()
         pw = self.pw_field.get()
-       # print ("name", name, "pw", pw)
-        if logic.login(name,pw):
+        if logic.login(name, pw):
             self._goto_show_main_view()
         else:
             print("Here we will figure out that user name or password is wrong")
@@ -43,7 +41,7 @@ class LoginView:
         sign_in_button = ttk.Button(
             master=self._frame,
             text="Log in",
-            command=self._login_button_func 
+            command=self._login_button_func
         )
 
         new_user_button = ttk.Button(

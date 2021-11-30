@@ -1,28 +1,64 @@
 from entities.user import User
+from db_connect import get_connection
+
 
 class Users:
+    """Takes care of all user related database operations
+    """
 
-    def __init__(self) -> None:
-        self._users_list = []
-        self._users_list.append(User("testaaja", "0000"))
+    def __init__(self, connection) -> None:
+        """sets up database_connection
 
-    def add_user(self,user):
-        self._users_list.append(user)
+        Args:
+            connection: Database collection entity (see db_connect class for creation)
+        """
+        self._connection = connection
+        # self._users_list.append(User("testaaja", "0000")
 
-    def get_users(self):
-        return self._users_list    
-    
-    def find_user(self, name):
-        
-        for user in self._users_list:
-            if user.get_name() == name:
-                
-                return True
+    def add_user(self, user):
+        if self.get_user(user.get_name()) == None:
+
+            """adds user to database
+
+            Args:
+                user : User entity
+            """
+            name = user.get_name()
+            password = user.get_password()
+            cursor = self._connection.cursor()
+            cursor.execute(" INSERT INTO users (name, pw) VALUES (?,?)",
+                       (name, password)
+                        )
+            self._connection.commit()
+            return True
         return False
 
-    def get_user(self, name):
-        for user in self._users_list:
-            if user.get_name() == name:
-                return user
+    def get_users(self):
+        all_users = []
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM users")
 
-users = Users()
+        rows = cursor.fetchall()
+        for row in rows:
+            all_users.append(User(row["name"], row["pw"]))
+
+        return all_users
+
+    def get_user(self, name):
+        """Get user from database
+
+        Args:
+            name : Name of the user we are looking for
+
+        Returns:
+            User entity: or None if user not found
+        """
+        cursor = self._connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE name= ?",
+                       (name,)
+                       )
+        row = cursor.fetchone()
+        return User(row["name"], row["pw"]) if row else None
+
+
+users = Users(get_connection())

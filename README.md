@@ -1,9 +1,11 @@
 # Ohjelmistotekniikka, harjoitustyö
 
 ## Boulder Pall 9000
-Boulder Pall 9000 on sovellus jonka avulla käyttäjä voi pitää kirjaa kiipeilyreiteiteistä joita on jo kiivennyt,tai aikoo kiivetä.
-Tämän hetkinen versio on vielä huomattavan keskeneräinen ja sisältää käytännössä vasta uuden käyttäjän luomisen ja sisäänkirjautumisen. Sisäänkirjautumisen (tai uuden käyttäjän luomisen) jälkeen aukeaa päänäkymä, joka on ihastuttavan epäestetttinen ja vailla toiminnallisuutta. Päänäkymässä näkyy, tervehdys käyttäjälle, placeholder ongelma ja kaksi nappia joista ei tapahdu mitään. 
-Uuden käyttäjän luominen luo uuden käyttäjän ja lisää sen käyttäjiä ylläpitävän luokan sisäiseen listaan. Myöhemmässä vaiheessa lista korvautuu järkevämmällä tietokantarakenteella (SQL). Testikattavuus on toistaiseksi heikko, ohjelmassa on yksi testi joka testaa että uusi käyttäjä todellakin lisätään listalle.
+Boulder Pall 9000 on sovellus jonka avulla käyttäjä voi pitää kirjaa kiipeilyreiteiteistä (ohjelma käyttää englannin kielistä termiä "problem") joita on jo kiivennyt,tai aikoo kiivetä.
+Tämän hetkinen versio on vielä keskeneräinen. Sisäänkirjautumisen (tai uuden käyttäjän luomisen) jälkeen aukeaa päänäkymä, joka on ihastuttavan epäestetttinen. Päänäkymässä näkyy, tervehdys käyttäjälle, kaikki tietokantaan lisätyt reitit ja kaksi nappia. Toisesta pääsee lisämään uuden reitin (oma näkymänsä) ja toisesta ei tapahdu mitään. 
+Uuden käyttäjän luominen luo uuden käyttäjän ja lisää sen ohjelman tiedontallennuksesta huolehtivaan tietokantaan. Uuden reitin luominen luo uuden reitin ja lisää sen tietokantaan, lisäksi juuri luotu ongelma ilmestyy näkyviin päänäkymään. Ohjelma tarkistaa sekä käyttäjää että ongelmaa luodessa että nimi on uniikki, eikä luo uutta mikäli saman niminen on jo olemassa. Tästä ei käyttäjä toistaiseksi saa mitäään palautetta. Reitille kuvan lisääminen ei myöskään vielä toimi, vaan sen virkaa toimittaa "placeholder" tekstikenttä.
+Lisätyt ongelmat lisätään myös uxb nimiseen tietokantaan jossa säilytetään tietoa siitä mitä reittejä käyttäjä on lisännyt itselleen ja onko ne jo merkitty kiivetyiksi. Tähän tietokantaan liittyvä toiminnallisuus kuitenkin vielä puuttuu. 
+ Testikattavuus on kohtalainen, testit testaavat reitin ja käyttäjän luomisesta huolehtivia luokkia, varsinaista sovelluslogiikka luokkaa ei vielä testata.
 
 ### HUOM! 
 Sisään voi kirjautua joko luomalla uuden käyttäjän tai testikäyttäjänä
@@ -11,6 +13,8 @@ Sisään voi kirjautua joko luomalla uuden käyttäjän tai testikäyttäjänä
 tunnus: testaaja
 
 salasana: 0000
+
+Ohjelman käynnistyessä ensimmäistä kertaa päänäkymässä ei näy reittejä, ennen kuin niitä on lisätty tietokantaan. 
 
 ### Dokumentaatio
 
@@ -20,11 +24,17 @@ Käyttöohje (tulossa)
 
 [Työaikakirjanpito](https://github.com/Jiisala/ot_harjoitustyo/blob/main/Dokumentaatio/tuntikirjanpito.md)
 
+[Arkkitehtuurikuvaus](https://github.com/Jiisala/ot-harjoitustyo/blob/main/Dokumentaatio/arkkitehtuurikuvaus.md)
+
 ### Asennus
 
 - Asenna tarvittavat riippuvuudet komennolla:
 ```bash
 poetry install
+```
+- Alusta tietokannat komennolla (ennen ensimmäistä käynnistystä tai jos haluat tyhjentää tietokannat)
+```bash
+poetry run invoke dbinit
 ```
 - Käynnistä sovellus komennolla:
 ```bash
