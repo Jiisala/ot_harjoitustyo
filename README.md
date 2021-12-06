@@ -28,7 +28,7 @@ Käyttöohje (tulossa)
 
 [Työaikakirjanpito](https://github.com/Jiisala/ot_harjoitustyo/blob/main/Dokumentaatio/tuntikirjanpito.md)
 
-[Arkkitehtuurikuvaus](https://github.com/Jiisala/ot-harjoitustyo/blob/main/Dokumentaatio/arkkitehtuurikuvaus.md)
+[Arkkitehtuurikuvaus](https://github.com/Jiisala/ot-harjoitustyo/blob/main/Dokumentaatio/arkkitehtuuri.md)
 
 ### Asennus
 
