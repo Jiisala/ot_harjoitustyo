@@ -15,24 +15,24 @@ Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista si
 
 ### Ohjelman käynnistyessä 
 
-* voidaan joko luoda uusi käyttäjä tai kirjautua sisään jo olemassa olevalle tilille.
+* [x] voidaan joko luoda uusi käyttäjä tai kirjautua sisään jo olemassa olevalle tilille. 
 
 ### Sisäänkirjautumisen jälkeen
 
-* Näkymässä näkyvät reitit näkyvät oletusarvoisesti kiipeämättömät reitit lisäyspäivän mukaan järjestettyinä (uusin ylimpänä.
+* [ ] Näkymässä näkyvät reitit näkyvät oletusarvoisesti kiipeämättömät reitit lisäyspäivän mukaan järjestettyinä (uusin ylimpänä.
   * järjestyksen voi halutessaan muuttaa myös niin että reitit järjestetään vaikeuden, arvostelun tai nimen mukaan.
   * jarjestyksen voi halutessaan kääntää laskevasti.
 
-* Voidaan vaihtaa näkymä näyttämään jo kiivetyt reitit
+* [x] Voidaan vaihtaa näkymä näyttämään jo kiivetyt reitit
   * samat järjestystoiminnot toimivat yhä
 
-* voidaan vaihtaa näkymä näyttämään sovllukseen lisätyt mutta omalta listalta puuttuvat reitit
+* [x] voidaan vaihtaa näkymä näyttämään sovllukseen lisätyt mutta omalta listalta puuttuvat reitit
   * samat järjestystoiminnot toimivat täälläkin
 
-* Näkymässä on nappi josta voidaan lisätä uusi reitti
+* [x] Näkymässä on nappi josta voidaan lisätä uusi reitti
   * reitin tiedot kysytään omassa ikkunassaan
   
-* Kun käyttäjä merkitsee reitin kiivetyksi, kysytään arvostelua (numeerinen), näiden arvostelujen keskiarvo näytetään reitin tiedoissa. 
+* [ ] Kun käyttäjä merkitsee reitin kiivetyksi, kysytään arvostelua (numeerinen), näiden arvostelujen keskiarvo näytetään reitin tiedoissa. 
 
 #### Lisätystä reitistä tallennetaan ainakin: 
 
