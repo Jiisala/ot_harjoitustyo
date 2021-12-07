@@ -29,7 +29,7 @@ def create_database(connection):
             name TEXT,
             pw TEXT 
         )
-    """) #Reference primary keay users breaks the test, find out why
+    """)  # Reference primary keay users breaks the test, find out why
     cursor.execute("""
         CREATE TABLE problems (
             id INTEGER PRIMARY KEY,

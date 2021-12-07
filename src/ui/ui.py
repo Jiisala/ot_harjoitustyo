@@ -2,6 +2,7 @@ from ui.login_view import LoginView
 from ui.new_user_view import NewUserView
 from ui.main_view import MainView
 from ui.new_problem_view import NewProblemView
+from ui.all_problems_view import AllProblemsView
 
 
 class UI:
@@ -28,10 +29,16 @@ class UI:
         self._view = NewProblemView(
             self._root,  self._show_main_view)
 
+    def _show_all_problems_view(self):
+        self._reset_view()
+        self._view = AllProblemsView(
+            self._root,  self._show_main_view)
+
     def _show_main_view(self):
 
         self._reset_view()
-        self._view = MainView(self._root, self._show_new_problem_view)
+        self._view = MainView(self._root, self._show_new_problem_view,
+                              self._show_all_problems_view, self._show_login_view)
 
     def _reset_view(self):
         if self._view:

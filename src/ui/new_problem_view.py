@@ -27,9 +27,8 @@ class NewProblemView:
 
         else:
             # Remember to add try/catch here also
-           
+
             logic.new_problem(name, grade, location, description, img_url)
-            
 
     def _start(self):
         self._frame = ttk.Frame(master=self._root)

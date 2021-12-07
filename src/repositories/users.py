@@ -16,19 +16,19 @@ class Users:
         # self._users_list.append(User("testaaja", "0000")
 
     def add_user(self, user):
-        if self.get_user(user.get_name()) == None:
+        if self.get_user(user.name) is None:
 
             """adds user to database
 
             Args:
                 user : User entity
             """
-            name = user.get_name()
-            password = user.get_password()
+            name = user.name
+            password = user.password
             cursor = self._connection.cursor()
             cursor.execute(" INSERT INTO users (name, pw) VALUES (?,?)",
-                       (name, password)
-                        )
+                           (name, password)
+                           )
             self._connection.commit()
             return True
         return False
