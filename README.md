@@ -32,6 +32,8 @@ Käyttöohje (tulossa)
 [Arkkitehtuurikuvaus](https://github.com/Jiisala/ot_harjoitustyo/blob/main/Dokumentaatio/arkkitehtuuri.md)
 
 ### Asennus
+- lataa sovelluksen uusin release:
+  [Release](https://github.com/Jiisala/ot_harjoitustyo/releases/tag/Viikko5)
 
 - Asenna tarvittavat riippuvuudet komennolla:
 ```bash
