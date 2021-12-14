@@ -14,5 +14,5 @@
  30.11. | 4 | Pientä refaktorointia, lisää testejä, Ohjelmointia jälleen 
  06.12  | 4 | Refaktorointia jotta ohjelma noudattaisi paremmin Pythonin henkeä, ohjelmointia ja runsaasti hukattua aikaa kun koitin saada TkInterin vierityspalkkia toimimaan järkevästi
  07.12  | 4 | Ohjelmointia, sekvenssikaavion laatiminen, testejä
-
-YHT: 48
+ 13.12  | 5 | Ohjelmointia, vierityspalkki toimii vihdoin!, Dockstringien kirjoittelua 
+YHT: 53

@@ -7,13 +7,13 @@ from init_db import init_db
 
 
 class TestUsers(unittest.TestCase):
-    """Collection of tests testing the problem entity, and related database operations. 
+    """Collection of tests testing the problem entity, and related database operations.
+       Also test uxp table relatd things 
 
     """
 
     def setUp(self):
-        """Setup, user repo needed to satisfy Foreign key constrains of the uxb table
-        """
+        
         self.test_repo = problems
         self.test_user = User("name", "pw")
         self.test_user2 = User("name2", "pw2")

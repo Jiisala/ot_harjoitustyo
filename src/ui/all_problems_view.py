@@ -1,30 +1,66 @@
-from tkinter import ttk
+from tkinter import ttk, Canvas, Scrollbar, OptionMenu, StringVar
 
 from services.logic import logic
 import textwrap
 
 
 class AllProblemsView:
+    """View for viewing all problems created by all users
+    
+    Attributes:
+        Attributes related to view changing are propably self expalanary.
+        Self._sort_bool boolean used to decide if sorting should be reversed or not.
+    """
 
     def __init__(self, root, goto_main_view) -> None:
 
         self._root = root
         self._goto_main_view = goto_main_view
         self._frame = None
+        self._sort_bool = False
 
         self._start()
 
     def destroy(self):
-        self._frame.destroy()
+        self.container_frame.destroy()
 
     def _wrap(self, string, length=40):
+        """Helper function for text wrapping
+
+        Args:
+            string (Str): String to wrap
+            length (int, optional): length of a line. Defaults to 40.
+
+        Returns:
+            String: String wrapped so that maximun line length is length ginven
+        """
         return "\n".join(textwrap.wrap(string, length))
+    
+    def _sort_by_key(self, problems):
+        """Helper function for sorting the list of problems
+
+        Args:
+            problems (list):  list of problem entities.
+        
+        Returns: sorted list
+        """
+         
+        def sort_order(problem):
+            tagged = 1 if self.check_uxp(
+            problem) else 0 
+            key = self.var.get()
+            if key != "Sort by":
+                return tagged, getattr(problem, key)
+            return tagged, problem.name
+        return sorted(problems, key=sort_order, reverse= self._sort_bool)
+
 
     def create_problems_frame(self):
         self._main_p_frame = ttk.Frame(master=self._frame)
         problems = logic.get_all_problems()
 
         i = 0
+        problems = self._sort_by_key(problems)
         for problem in problems:
 
             p_frame = self.create_individual_problem_frame(problem)
@@ -35,19 +71,27 @@ class AllProblemsView:
         return self._main_p_frame
 
     def check_uxp(self, problem):
+        """calls function from main logic in order to find if user already tagged a particular problem 
+
+        Args:
+            problem (problem): problem entity to check
+
+        Returns:
+            Boolean: Tagged or not
+        """
         checklist = logic.get_problems_for_user()
         for part in checklist:
             if part[0].name == problem.name:
-                print(part[0], problem)
+                
                 return True
         return False
 
     def create_individual_problem_frame(self, problem):
 
         p_frame = ttk.Frame(master=self._main_p_frame)
-        self.check_uxp(problem)
+        #self.check_uxp(problem)
         tagged_or_untagged = "TAGGED!" if self.check_uxp(
-            problem) else "untagged"  # HERE BE SOMETHING FISHY
+            problem) else "untagged"  
 
         p_label = ttk.Label(master=p_frame,
                             text=f"NAME: {problem.name}\nAUTHOR: {problem.author}\nGRADE: {problem.grade}",
@@ -91,21 +135,51 @@ class AllProblemsView:
             button["text"] = "untagged"
             logic.remove_problem_from_uxp(problem)
 
+    def sort_button_action(self, button):
+    
+        if button["text"] == "Sort v":
+            button["text"] = "sort ^"
+            self._sort_bool = True
+            
+        else:
+            button["text"] = "Sort v"
+            self._sort_bool = False
+        
+        new_frame = self.create_problems_frame()
+        new_frame.grid(row=2, column=0, columnspan=2,
+                           padx=5, pady=5, sticky="W")
+    
+    def create_dropdown(self):
+        OPTIONS = ["Sort by", "name", "grade", "author","location"]
+        self.var = StringVar(master= self._frame)
+        self.var.set(OPTIONS[0])
+        dropdown = OptionMenu(self._frame, self.var, *OPTIONS)
+        return dropdown
+
     def _start(self):
-        self._frame = ttk.Frame(master=self._root)
-
-        #self._frame.grid_columnconfigure(1, weight=1)
+        self.container_frame = ttk.Frame(master=self._root)
+        canvas = Canvas(master=self.container_frame)
+        sb = Scrollbar(master= self.container_frame, orient="vertical", command=canvas.yview)
+        self._frame = ttk.Frame(master= canvas)
         self._frame.configure(padding=15)
+        self._frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        canvas.create_window((0, 0), window=self._frame, anchor="nw")
+        canvas.configure(yscrollcommand=sb.set, width= 1200, height=800)
 
+        self.dropdown = self.create_dropdown()
         self._p_frame = self.create_problems_frame()
 
         header_label = ttk.Label(
             master=self._frame,
             text=f"Tag some problems for you to solve",
             font="courier 20")
-        # So, this does not work, find out why
-        separator = ttk.Separator(master=self._frame, orient="horizontal")
-
+       
+        sort_button = ttk.Button(
+            master= self._frame,
+            text= "Sort v",
+            command= lambda: self.sort_button_action(sort_button)
+        )
+        
         main_view_button = ttk.Button(
             master=self._frame,
             text="Back",
@@ -113,9 +187,12 @@ class AllProblemsView:
         )
 
         header_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
-        separator.grid(row=1, column=0, columnspan=2)
+        self.dropdown.grid(row=1, column=0)
+        sort_button.grid(row=1, column=1)
         self._p_frame.grid(row=2, column=0, columnspan=2,
                            padx=5, pady=5, sticky="W")
         main_view_button.grid(row=3, column=0, padx=5, pady=5)
 
-        self._frame.pack()
+        canvas.grid(row=0, column=0)
+        sb.grid(row=0 ,column=1, sticky="ENS")
+        self.container_frame.pack()

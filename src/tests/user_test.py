@@ -5,7 +5,7 @@ from init_db import init_db
 
 
 class TestUsers(unittest.TestCase):
-    """Collection of tests testing the user entity, and related database operations. 
+    """Collection of tests testing the user entity, and related database operations.
 
     """
 

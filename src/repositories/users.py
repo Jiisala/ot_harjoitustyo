@@ -13,16 +13,17 @@ class Users:
             connection: Database collection entity (see db_connect class for creation)
         """
         self._connection = connection
-        # self._users_list.append(User("testaaja", "0000")
 
     def add_user(self, user):
+        """adds user to database
+
+        Args:
+            user : User entity
+        Returns:
+            Boolean: Knowledge if the database operation wass successfull
+        """
         if self.get_user(user.name) is None:
 
-            """adds user to database
-
-            Args:
-                user : User entity
-            """
             name = user.name
             password = user.password
             cursor = self._connection.cursor()
@@ -34,6 +35,11 @@ class Users:
         return False
 
     def get_users(self):
+        """function to get all users from database
+
+        Returns:
+            list: List of user entities
+        """
         all_users = []
         cursor = self._connection.cursor()
         cursor.execute("SELECT * FROM users")

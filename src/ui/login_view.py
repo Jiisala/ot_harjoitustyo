@@ -4,6 +4,8 @@ from services.logic import logic
 
 
 class LoginView:
+    """Login view, nothing too complicated here
+    """
 
     def __init__(self, root, goto_new_user_view, goto_show_main_view) -> None:
         self._root = root

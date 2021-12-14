@@ -3,12 +3,15 @@ from services.logic import logic
 
 
 class NewProblemView:
+    """view for creating new problems.
+    """
+
 
     def __init__(self, root, goto_main_view) -> None:
         self._root = root
 
         self._goto_main_view = goto_main_view
-        self._frame = None
+       # self._frame = None
 
         self._start()
 

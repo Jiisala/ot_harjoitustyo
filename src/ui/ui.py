@@ -6,7 +6,9 @@ from ui.all_problems_view import AllProblemsView
 
 
 class UI:
-
+    """Class taking care of UI related things, mainly changing from one view to another.
+       Methods should be self explanatory.
+    """
     def __init__(self, root) -> None:
         self._root = root
         self._view = None
@@ -35,7 +37,6 @@ class UI:
             self._root,  self._show_main_view)
 
     def _show_main_view(self):
-
         self._reset_view()
         self._view = MainView(self._root, self._show_new_problem_view,
                               self._show_all_problems_view, self._show_login_view)
@@ -43,5 +44,4 @@ class UI:
     def _reset_view(self):
         if self._view:
             self._view.destroy()
-
         self._view = None

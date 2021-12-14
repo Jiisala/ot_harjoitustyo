@@ -31,8 +31,8 @@ class Problems:
         if self.get_problem(name) is None:
             cursor = self._connection.cursor()
 
-            cursor.execute(""" INSERT INTO problems (name, author_id, grade, location, description, img_url)
-                           VALUES (?,?,?,?,?,?)""",
+            cursor.execute(""" INSERT INTO problems (name, author_id, grade, location, description,
+                           img_url) VALUES (?,?,?,?,?,?)""",
                            (name, author_name, grade,
                             location, description, img_url)
                            )
@@ -42,6 +42,12 @@ class Problems:
             self.add_to_uxp(problem, author)
 
     def add_to_uxp(self, problem, user):
+        """adds user and problem to uxp table in the database.
+
+        Args:
+            problem (problem): Problem entity
+            user (User): User entity
+        """
 
         cursor = self._connection.cursor()
         cursor.execute(
@@ -56,6 +62,12 @@ class Problems:
         self._connection.commit()
 
     def remove_problem_from_uxp(self, problem, user):
+        """removes user and problem from uxp table in the database.
+
+        Args:
+            problem (problem): Problem entity
+            user (User): User entity
+        """
         cursor = self._connection.cursor()
         cursor.execute(
             f"SELECT id FROM problems WHERE name='{problem.name}'")
@@ -118,7 +130,11 @@ class Problems:
         ) if row else None
 
     def get_problems_for_user(self, user):
-
+        """Gets problems for given user
+        Args:
+            User(user): User entity
+        Returns: List of problems
+        """
         cursor = self._connection.cursor()
         cursor.execute(
             f"""SELECT P.*, UP.solved
@@ -140,6 +156,12 @@ class Problems:
         return user_problems
 
     def mark_solved(self, value, problem, user):
+        """Marks problem solved or not solved for given user
+        Args:
+            Value (int): Value 1 for solved and 0 for unsolved
+            problem (problem): problem entity
+            user (user): user entity
+        """
 
         cursor = self._connection.cursor()
         cursor.execute(

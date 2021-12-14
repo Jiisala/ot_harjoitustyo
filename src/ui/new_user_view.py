@@ -3,6 +3,8 @@ from services.logic import logic
 
 
 class NewUserView:
+    """A view for creating new users.
+    """
 
     def __init__(self, root, goto_login_view, goto_main_view) -> None:
         self._root = root
