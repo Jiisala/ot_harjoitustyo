@@ -1,6 +1,5 @@
 # Arkkitehtuurikuvaus
 
-<<<<<<< HEAD
 ## Ohjelman rakenne
 
 Ohjelma rakentuu kerroksista joista jokaisella on oma tehtävänsä. Ohjelman pakkausrakenne tehtävinään on seuraava:
@@ -46,7 +45,6 @@ Esimerkki ohjelman toiminnasta. Aluksi sisäänkirjautunut käyttäjä on näkym
 Sovelluslogiikka tuntee jo sisäänkirjautuneen käyttäjän, reitin jota nappi koskee. UI kuvaa kaaviossa laajemmin kaikkia käyttöliittymästä vastaavia luokkia.
 Problems luokka huolehtii kesksustelusta tietokannan kanssa. Uxp tietokanta on yhdistelmätietokanta joka kerää yhteen käyttäjiä ja reittejä.
 Kaavio oikaisee hieman mutkia. Oikeasti ohjelma hakee myös tietoa käyttäjästä, käyttäjien tallentemisesta vastaavasta tietokannasta (ID:n), lisätessään käyttäjän ja reitin uxp tietokantaan.
->>>>>>> cd06da52f1c9bf3c78fbe96a2e40f31082685c56
 
 Sovelluksen toimintaa on kuvattu jo monin paikoin aikaisemmin tekstissä. Esimerkin vuoksi kuitenkin käykäämme läpi tarkemmin mitä tapahtuu kun käyttäjä luo uuden reitin. 
 Alkuasetelmassa sisäänkirjautunut käyttäjä on täyttänyt new problem näkymän kentät ja painaa Create nappulaa. Nappulan toiminnasta vastaava _new_problem_button_fuct metodi noutaa tekstikenttien tiedot ja välittää ne logic luokan metodille new_problem.
