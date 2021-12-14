@@ -15,24 +15,23 @@ Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista si
 
 ### Ohjelman käynnistyessä 
 
-* [x] voidaan joko luoda uusi käyttäjä tai kirjautua sisään jo olemassa olevalle tilille. 
+*  voidaan joko luoda uusi käyttäjä tai kirjautua sisään jo olemassa olevalle tilille. 
 
 ### Sisäänkirjautumisen jälkeen
 
-* [ ] Näkymässä näkyvät reitit näkyvät oletusarvoisesti kiipeämättömät reitit lisäyspäivän mukaan järjestettyinä (uusin ylimpänä.
-  * järjestyksen voi halutessaan muuttaa myös niin että reitit järjestetään vaikeuden, arvostelun tai nimen mukaan.
-  * jarjestyksen voi halutessaan kääntää laskevasti.
+* [x] Näkymässä näkyvät reitit näkyvät oletusarvoisesti kiipeämättömät reitit lisäyspäivän mukaan järjestettyinä (uusin ylimpänä.
+  * [x] järjestyksen voi halutessaan muuttaa myös niin että reitit järjestetään vaikeudenm tai nimen mukaan.
+  * [x] jarjestyksen voi halutessaan kääntää laskevasti.
 
-* [x] Voidaan vaihtaa näkymä näyttämään jo kiivetyt reitit
-  * samat järjestystoiminnot toimivat yhä
+*  Voidaan vaihtaa näkymä näyttämään jo kiivetyt reitit
+  * [x] samat järjestystoiminnot toimivat yhä
 
-* [x] voidaan vaihtaa näkymä näyttämään sovllukseen lisätyt mutta omalta listalta puuttuvat reitit
-  * samat järjestystoiminnot toimivat täälläkin
+* voidaan vaihtaa näkymä näyttämään sovllukseen lisätyt mutta omalta listalta puuttuvat reitit
+  * [x] samat järjestystoiminnot toimivat täälläkin
 
-* [x] Näkymässä on nappi josta voidaan lisätä uusi reitti
+*  Näkymässä on nappi josta voidaan lisätä uusi reitti
   * reitin tiedot kysytään omassa ikkunassaan
-  
-* [ ] Kun käyttäjä merkitsee reitin kiivetyksi, kysytään arvostelua (numeerinen), näiden arvostelujen keskiarvo näytetään reitin tiedoissa. 
+   
 
 #### Lisätystä reitistä tallennetaan ainakin: 
 
@@ -41,10 +40,9 @@ Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista si
 * vaikeusaste 
   * käytetään boulderointiin sopivaa merkintätapaa joka alkaa numerosta 4 ja vaikeutuessaan kasvaa. 
   * Numeron perään voidaan lisätä kirjain a, b, tai c, ja sen jälkeen + tai -
-*  kuva reitistä
+* [ ] kuva reitistä
 *  sijainti (vapaa tekstikenttä, ajankäytöllisistä syistä)
-*  lyhyt kuvaus 
-*  arvostelut
+*  lyhyt kuvaus
  
  
 ## Mahdollisia laajennusideoita jos jää aikaa
