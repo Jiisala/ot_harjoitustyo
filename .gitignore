@@ -5,7 +5,7 @@
 /laskarit/viikko2/unicafe/.coverage
 /laskarit/viikko2/unicafe/htmlcov
 __MACOSX
-
+*.sqlite
 .coverage
 /htmlcov
 __pycache__
