@@ -33,19 +33,6 @@ Tietokantataulun nimi ja polku määritellään konfiguraatiotiedostossa joka l�
 Tämä tulee tehdä ennen ensimmäistä käynnistystä sillä se luo tarvittavat tietokannat. Saman komennon uudelleen ajaminen, tyhjentää kaikki tallennetut tiedot tietokannoista. Muuta keinoa yskittäisen käyttäjän tai reitin poistamiseen ohjelma ei tällä hetkellä tarjoa.
 
 ## Sovelluksen toiminta
-=======
-## Luokka-/pakkauskaavio
-Ohjelman rakenne kuvattuna karkealla tasolla. UI-pakkaus sisältää käyttöliittymän,
-Services sovelluslogiikan, Entities käyttäjä ja ongelma olioita kuvaavat luokat, ja repositories ohjelman käyttämien tietokantojen käsittelyn.
-
-![luokkakaavio](./img/luokkakaavio.png)
-
-## Sekvenssikaavio
-Esimerkki ohjelman toiminnasta. Aluksi sisäänkirjautunut käyttäjä on näkymässä jossa näkyvät kaikki lisätyt reitit ja painaa "tagaus" nappia nostaakseen reitin omaan päänäkymäänsä.
-Sovelluslogiikka tuntee jo sisäänkirjautuneen käyttäjän, reitin jota nappi koskee. UI kuvaa kaaviossa laajemmin kaikkia käyttöliittymästä vastaavia luokkia.
-Problems luokka huolehtii kesksustelusta tietokannan kanssa. Uxp tietokanta on yhdistelmätietokanta joka kerää yhteen käyttäjiä ja reittejä.
-Kaavio oikaisee hieman mutkia. Oikeasti ohjelma hakee myös tietoa käyttäjästä, käyttäjien tallentemisesta vastaavasta tietokannasta (ID:n), lisätessään käyttäjän ja reitin uxp tietokantaan.
-
 Sovelluksen toimintaa on kuvattu jo monin paikoin aikaisemmin tekstissä. Esimerkin vuoksi kuitenkin käykäämme läpi tarkemmin mitä tapahtuu kun käyttäjä luo uuden reitin. 
 Alkuasetelmassa sisäänkirjautunut käyttäjä on täyttänyt new problem näkymän kentät ja painaa Create nappulaa. Nappulan toiminnasta vastaava _new_problem_button_fuct metodi noutaa tekstikenttien tiedot ja välittää ne logic luokan metodille new_problem.
 new_problem metodi täydentää tietoja lisäämällä reitin luojaksi nykyisen käyttäjän, joka on tallennettu oliomuuttujaan current user. Sen jälkeen metodi välittää problems luokan metodille add_problem problem olion joka luodaan metodikutsun yhteydessä. Problem olion parametreina käytetään edellisissä kohdissa kerättyjä tietoja.
