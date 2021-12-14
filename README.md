@@ -24,7 +24,7 @@ Ohjelman käynnistyessä ensimmäistä kertaa päänäkymässä ei näy reittej�
 
 ### Dokumentaatio
 
-Käyttöohje (tulossa)
+[Käyttöohje](https://github.com/Jiisala/ot_harjoitustyo/blob/main/Dokumentaatio/kayttoohje.md)
 
 [Vaatimusmäärittely](https://github.com/Jiisala/ot_harjoitustyo/tree/main/Dokumentaatio/vaatimusmaarittely.md)
 
