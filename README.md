@@ -7,9 +7,11 @@
 
  Uuden käyttäjän luominen lisää käyttäjän ohjelman tiedontallennuksesta huolehtivaan tietokantaan. Uuden reitin luominen lisää vastaavasti sen tietokantaan, lisäksi juuri luotu reitti ilmestyy näkyviin päänäkymään, sekä näkymään joka näyttää kaikki reitit. Ohjelma tarkistaa sekä käyttäjää että ongelmaa luodessa että nimi on uniikki, eikä luo uutta mikäli saman niminen on jo olemassa. Tästä ei käyttäjä toistaiseksi saa mitäään palautetta. Reitille kuvan lisääminen ei myöskään vielä toimi, vaan sen virkaa toimittaa "placeholder" tekstikenttä.
  
+ Sekä päänäkymässä että reittien tarkasteluun tarkoitetussa näkymässä voi reitit järjestää useammall eri tavalla, joko nousevaan tai laskevaan järjestykseen.
+ 
  Lisätyt ongelmat lisätään myös uxb nimiseen tietokantaan jossa säilytetään tietoa siitä mitä reittejä käyttäjä on lisännyt itselleen ja onko ne jo merkitty kiivetyiksi. Myös reitin tagaaminen lisää sen samaiseen tietokantaan. Tagin poistaminen poistaa reitin tietokannasta, samalla reitti poistuu käyttäjän päänäkymästä ja tieto reitin kiipeämisestä häviää. 
  
- Testikattavuus on kohtalainen, testit testaavat reitin ja käyttäjän luomisesta huolehtivia luokkia, varsinaista sovelluslogiikka-luokkaa ei vielä testata.
+ Testikattavuus on kohtalainen, testit testaavat reitin ja käyttäjän luomisesta huolehtivia luokkia, varsinaisen sovelluslogiikan testaus on aloitettu.
 
 ### HUOM! 
 Sisään voi kirjautua joko luomalla uuden käyttäjän tai testikäyttäjänä
@@ -19,7 +21,6 @@ tunnus: testi
 salasana: 0000
 
 Ohjelman käynnistyessä ensimmäistä kertaa päänäkymässä ei näy reittejä, ennen kuin niitä on lisätty tietokantaan. 
-Ohjelman näkymissä ei ole vielä vierityspalkkeja, mikäli ohjelmaan lisää liikaa reittejä, katoavat napit ulos ruudusta. Mikäli näin käy ja haluat jatkaa käyttöä, ainoa keino lienee tietokantojen uudelleen alustus. Tämän ongelman pyrin tietenkin korjaamaan tulevissa versioissa. 
 
 ### Dokumentaatio
 
