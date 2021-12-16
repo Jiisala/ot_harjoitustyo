@@ -31,8 +31,9 @@ class Users:
                            (name, password)
                            )
             self._connection.commit()
-            return True
-        return False
+        else:
+            raise ValueError    
+        
 
     def get_users(self):
         """function to get all users from database

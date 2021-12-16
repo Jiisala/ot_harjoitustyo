@@ -1,4 +1,5 @@
-from tkinter import ttk, Canvas, Scrollbar, OptionMenu, StringVar
+from tkinter import ttk, Canvas, Scrollbar, OptionMenu, StringVar, PhotoImage
+from PIL import Image, ImageTk
 
 from services.logic import logic
 import textwrap
@@ -92,7 +93,7 @@ class AllProblemsView:
         #self.check_uxp(problem)
         tagged_or_untagged = "TAGGED!" if self.check_uxp(
             problem) else "untagged"  
-
+        picture = ImageTk.PhotoImage(Image.open(problem.img_url).resize((200,200)))
         p_label = ttk.Label(master=p_frame,
                             text=f"NAME: {problem.name}\nAUTHOR: {problem.author}\nGRADE: {problem.grade}",
                             borderwidth=2,
@@ -110,11 +111,11 @@ class AllProblemsView:
                              relief="ridge"
                              )
 
-        p_label3 = ttk.Label(master=p_frame, text=f"tähän tulee kuva {problem.img_url}",
+        p_label3 = ttk.Label(master=p_frame, image=picture,
                              borderwidth=2,
                              relief="ridge"
                              )
-
+        p_label3.photo = picture
         tag_button = ttk.Button(master=p_frame,
                                 text=tagged_or_untagged,
                                 command=lambda: self.tag_button_action(problem, tag_button))

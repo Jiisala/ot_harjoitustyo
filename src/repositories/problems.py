@@ -40,6 +40,8 @@ class Problems:
 
             author = problem.author
             self.add_to_uxp(problem, author)
+        else: 
+            raise ValueError
 
     def add_to_uxp(self, problem, user):
         """adds user and problem to uxp table in the database.

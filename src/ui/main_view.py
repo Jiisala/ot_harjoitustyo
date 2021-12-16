@@ -1,5 +1,9 @@
 
-from tkinter import Canvas, OptionMenu, ttk, Scrollbar, StringVar
+from tkinter import Canvas, OptionMenu, ttk, Scrollbar, StringVar, PhotoImage
+
+
+from PIL import Image, ImageTk
+ 
 
 from services.logic import logic
 import textwrap
@@ -70,6 +74,11 @@ class MainView:
     def create_individual_problem_frame(self, problem_with_solved):
         problem = problem_with_solved[0]
         solved_or_not = "SOLVED!" if problem_with_solved[1] == 1 else "unsolved"
+        test = Image.open(problem.img_url)
+        test = test.resize((150,150))
+        picture = ImageTk.PhotoImage(test)
+       
+        
 
         p_frame = ttk.Frame(master=self._main_p_frame)
 
@@ -91,11 +100,12 @@ class MainView:
                              relief="ridge"
                              )
 
-        p_label3 = ttk.Label(master=p_frame, text=f"tähän tulee kuva {problem.img_url}",
+        p_label3 = ttk.Label(master=p_frame, image=picture,
                              borderwidth=2,
                              relief="ridge"
                              )
-
+        p_label3.photo = picture
+        p_label3.bind("<Button-1>", lambda e : picture.show())
         done_button = ttk.Button(master=p_frame,
                                  text=solved_or_not,
                                  command=lambda: self.done_button_action(problem, done_button))

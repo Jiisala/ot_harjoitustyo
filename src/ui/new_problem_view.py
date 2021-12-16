@@ -1,6 +1,11 @@
 from tkinter import ttk
-from services.logic import logic
+from tkinter.constants import END
 
+from PIL import UnidentifiedImageError
+from services.logic import logic
+from tkinter.filedialog import askopenfilename
+
+import shutil, os
 
 class NewProblemView:
     """view for creating new problems.
@@ -23,15 +28,32 @@ class NewProblemView:
         grade = self._grade_field.get()
         location = self._location_field.get()
         description = self._description_field.get()
-        img_url = self._img_field.get()
+        img_url = f"./data/img/{self._img_field.get()}"
 
         if len(name) == 0:
-            print("This will do a thing later on when I get around implementing it")
+            self.message_label["text"] = "Please give your problem a name"
 
         else:
-            # Remember to add try/catch here also
+            try:
+                logic.new_problem(name, grade, location, description, img_url)
+                self.message_label["text"]= f"Problem {name} created succesfully"
+            except ValueError:
+                self.message_label["text"] = f"Problem named {name} already exists."
 
-            logic.new_problem(name, grade, location, description, img_url)
+    def _select_image_button_funct(self):
+        """This will open system dialg for selecting file, send paht to file to logic.handle_img_path
+           If selected file was image of supported type, it will insert name of the image to corresponding entryfield
+        """
+        
+        img_path = askopenfilename()
+        img_name = self._img_field.get()
+        try:
+            img_name = logic.handle_img_path(img_path)
+        except UnidentifiedImageError:
+            self.message_label["text"] = "Image filetype not supported. Please use .gif, .png, .jpg, jpeg or .bmp"
+            pass
+        self._img_field.delete(0,END)
+        self._img_field.insert(0,img_name)
 
     def _start(self):
         self._frame = ttk.Frame(master=self._root)
@@ -40,7 +62,8 @@ class NewProblemView:
 
         label = ttk.Label(master=self._frame,
                           text="Lets get creating")
-
+        self.message_label = ttk.Label(master=self._frame,
+                          text="")
         problem_name_label = ttk.Label(master=self._frame, text="Name:")
         grade_label = ttk.Label(master=self._frame, text="Grade:")
         location_label = ttk.Label(master=self._frame, text="Location")
@@ -52,6 +75,8 @@ class NewProblemView:
         self._location_field = ttk.Entry(master=self._frame)
         self._description_field = ttk.Entry(master=self._frame)
         self._img_field = ttk.Entry(master=self._frame)
+        self._img_field.insert(0,"kivi.gif")
+        self._img_button = ttk.Button(master=self._frame,text="kuva", command=self._select_image_button_funct)
 
         create_button = ttk.Button(
             master=self._frame,
@@ -65,7 +90,8 @@ class NewProblemView:
             command=self._goto_main_view
         )
 
-        label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
+        label.grid(row=0, column=0, columnspan=3, padx=5, pady=5)
+        self.message_label.grid(row=1, columnspan=3, column=0, padx=5, pady=5)
         problem_name_label.grid(row=2, column=0, padx=5, pady=5)
         self._problem_name_field.grid(row=2, column=1, padx=5, pady=5)
         grade_label.grid(row=3, column=0, padx=5, pady=5)
@@ -76,6 +102,7 @@ class NewProblemView:
         self._description_field.grid(row=5, column=1, padx=5, pady=5)
         img_label.grid(row=6, column=0, padx=5, pady=5)
         self._img_field.grid(row=6, column=1, padx=5, pady=5)
+        self._img_button.grid(row=6, column= 2)
 
         create_button.grid(row=7, column=0, padx=5, pady=5)
         back_button.grid(row=7, column=1, padx=5, pady=5, sticky="E")

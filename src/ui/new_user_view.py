@@ -22,16 +22,17 @@ class NewUserView:
         pw = self._pw_field.get()
         pw_check = self._pw_check_field.get()
         if len(name) == 0 or len(pw) == 0:
-            print("This will do a thing later on when I get around implementing it")
+            self.mesage_label["text"] = "Please enter name and password"
         elif pw != pw_check:
-            print(
-                "here we check if pasword and pasword_check match, error handlig to be implemented")
+            self.mesage_label["text"] = "Please enter the same password twice"
         else:
-            # Remember to add try/catch here also
-            if logic.new_user(name, pw):
+            
+            try:
+                logic.new_user(name, pw)
                 logic.login(name, pw)
                 self._goto_main_view()
-
+            except ValueError:
+                self.mesage_label["text"] = "Username already exists"
     def _start(self):
         self._frame = ttk.Frame(master=self._root)
         self._frame.grid_columnconfigure(1, weight=1)
@@ -39,6 +40,9 @@ class NewUserView:
 
         label = ttk.Label(master=self._frame,
                           text="Pleased to meet you, who ever you are")
+        self.mesage_label = ttk.Label(master=self._frame,
+                          text="")
+
 
         user_name_label = ttk.Label(master=self._frame, text="Name:")
         pw_label = ttk.Label(master=self._frame, text="Password:")
@@ -60,6 +64,7 @@ class NewUserView:
         )
 
         label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
+        self.mesage_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
         user_name_label.grid(row=2, column=0, padx=5, pady=5)
         self._user_name_field.grid(row=2, column=1, padx=5, pady=5)
         pw_label.grid(row=3, column=0, padx=5, pady=5)

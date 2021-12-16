@@ -6,7 +6,7 @@ from entities.user import User
 from init_db import init_db
 
 
-class TestUsers(unittest.TestCase):
+class TestProblems(unittest.TestCase):
     """Collection of tests testing the problem entity, and related database operations.
        Also test uxp table relatd things 
 

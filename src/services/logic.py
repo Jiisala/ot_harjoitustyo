@@ -1,9 +1,12 @@
 
 
+from PIL import UnidentifiedImageError
 from repositories.problems import problems as default_problems
 from repositories.users import users as default_users
 from entities.problem import Problem
 from entities.user import User
+import shutil
+import os
 
 
 class Logic:
@@ -27,13 +30,11 @@ class Logic:
             name (String): username
             password (String): password
 
-        Returns:
-            Boolean: knowledge if the creation was succesfull
         """
 
-        return self._users.add_user(User(name, password))
+        self._users.add_user(User(name, password))
 
-    def new_problem(self, name, grade, location, description, img_url=None):
+    def new_problem(self, name, grade, location, description, img_url):
         """Creates new problem by sending necessary info to the class handling
            communication with problems database
 
@@ -43,8 +44,7 @@ class Logic:
                 grading system (not enforced)
             location (String): Location of the problem
             description (String): A short description of the problem
-            img_url (String, optional): Image goes here when the implementation
-            is ready. Defaults to None.
+            img_url (String, optional):.
         """
         author = self.current_user
         self._problems.add_problem(
@@ -139,6 +139,29 @@ class Logic:
             problem (problem): problem entity
         """
         self._problems.mark_solved(value, problem, self.current_user)
+    
+    def handle_img_path(self, img_path):
+        """shortens path to image to image name and calls copy_image function
 
+        Args:
+            img_url (Str): Path to image in file
+
+        Raises:
+            UnidentifiedImageError: unsupported image type
+        """
+        img_name= img_path.split("/")[-1]
+        
+        if img_name.split(".")[-1] not in ["jpg","jpeg","png","gif", "bmp"]: 
+            raise UnidentifiedImageError
+        self.copy_image(img_path)
+        return img_name    
+        
+    def copy_image(self, img_path):
+        """Copies image to programs img folder 
+        """ 
+        try:    
+            shutil.copy(img_path, "./data/img/")
+        except shutil.SameFileError:
+            pass       
 
 logic = Logic()
