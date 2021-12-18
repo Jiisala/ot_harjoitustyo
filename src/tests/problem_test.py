@@ -13,46 +13,45 @@ class TestProblems(unittest.TestCase):
     """
 
     def setUp(self):
-        
+        init_db()
         self.test_repo = problems
-        self.test_user = User("name", "pw")
+        self.test_user1 = User("name1", "pw")
         self.test_user2 = User("name2", "pw2")
         self.test_problem = (
-            Problem("testname", self.test_user, "grade", "location", "descr", "img_url"))
+            Problem("testname", self.test_user1, "grade", "location", "descr"))
         self.test_user_repo = users
-        self.test_user_repo.add_user(self.test_user)
+        self.test_user_repo.add_user(self.test_user1)
         self.test_user_repo.add_user(self.test_user2)
 
     def reset_db_between_tests(self):
         init_db()
-        self.test_user_repo.add_user(self.test_user)
+        self.test_user_repo.add_user(self.test_user1)
         self.test_user_repo.add_user(self.test_user2)
 
     def test_add_problem_adds_problem(self):
         self.reset_db_between_tests()
         self.test_repo.add_problem(
-            Problem("name", self.test_user, "grade", "location", "descr", "img_url"))
+            Problem("name", self.test_user1, "grade", "location", "descr", "img_url"))
 
         self.assertEqual(len(self.test_repo.get_problems()), 1)
 
     def test_add_problem_adds_problem_many_times(self):
         self.reset_db_between_tests()
         self.test_repo.add_problem(
-            Problem("name1", self.test_user, "grade", "location", "descr", "img_url"))
+            Problem("name1", self.test_user1, "grade", "location", "descr", "img_url"))
         self.test_repo.add_problem(
-            Problem("name2", self.test_user, "grade", "location", "descr", "img_url"))
+            Problem("name2", self.test_user1, "grade", "location", "descr", "img_url"))
         self.test_repo.add_problem(
-            Problem("name3", self.test_user, "grade", "location", "descr", "img_url"))
+            Problem("name3", self.test_user1, "grade", "location", "descr", "img_url"))
         self.assertEqual(len(self.test_repo.get_problems()), 3)
 
     def test_no_problems_with_same_name(self):
         self.reset_db_between_tests()
-        self.test_repo.add_problem(
-            Problem("name", self.test_user, "grade", "location", "descr", "img_url"))
-        self.test_repo.add_problem(
-            Problem("name", self.test_user, "grade", "location", "descr", "img_url"))
-
-        self.assertEqual(len(self.test_repo.get_problems()), 1)
+        with self.assertRaises(ValueError):
+            self.test_repo.add_problem(
+                Problem("name", self.test_user1, "grade", "location", "descr", "img_url"))
+            self.test_repo.add_problem(
+                Problem("name", self.test_user1, "grade", "location", "descr", "img_url"))
 
     def test_add_problem_to_uxp_adds_problem_to_uxp(self):
         self.reset_db_between_tests()

@@ -17,21 +17,22 @@ class TestUsers(unittest.TestCase):
 
     def test_add_user_adds_user(self):
         self.reset_db_between_tests()
+        start_len = len(self.test_repo.get_users())
         self.test_repo.add_user(User("name", "pw"))
-        # (this is 2 because I added a test user, change later)
-        self.assertEqual(len(self.test_repo.get_users()), 2)
+        self.assertEqual(len(self.test_repo.get_users()), start_len + 1)
 
     def test_add_user_adds_user_many_times(self):
         self.reset_db_between_tests()
+        start_len = len(self.test_repo.get_users())
         self.test_repo.add_user(User("name1", "pw"))
         self.test_repo.add_user(User("name2", "pw"))
         self.test_repo.add_user(User("name3", "pw"))
-        # (this is 4 because I added a test user, change later)
-        self.assertEqual(len(self.test_repo.get_users()), 4)
+
+        self.assertEqual(len(self.test_repo.get_users()), start_len + 3)
 
     def test_no_users_with_same_name(self):
         self.reset_db_between_tests()
-        self.test_repo.add_user(User("name", "pw"))
-        self.test_repo.add_user(User("name", "pw"))
-        # (this is 2 because I added a test user, change later)
-        self.assertEqual(len(self.test_repo.get_users()), 2)
+
+        with self.assertRaises(ValueError):
+            self.test_repo.add_user(User("name", "pw"))
+            self.test_repo.add_user(User("name", "pw"))

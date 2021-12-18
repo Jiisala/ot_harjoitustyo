@@ -1,5 +1,6 @@
 from db_connect import get_connection
 
+
 def clear_database(connection):
     """drops tables if database exists already
     """

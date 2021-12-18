@@ -1,4 +1,4 @@
 [run]
 source = src
-omit = src/**/__init__.py,src/tests/**,src/ui/**,src/launch.py
+omit = src/**/__init__.py,src/tests/**,src/ui/**,src/launch.py,src/init_db.py,src/config.py
 

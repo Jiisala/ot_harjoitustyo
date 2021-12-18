@@ -26,13 +26,14 @@ class NewUserView:
         elif pw != pw_check:
             self.mesage_label["text"] = "Please enter the same password twice"
         else:
-            
+
             try:
                 logic.new_user(name, pw)
                 logic.login(name, pw)
                 self._goto_main_view()
             except ValueError:
                 self.mesage_label["text"] = "Username already exists"
+
     def _start(self):
         self._frame = ttk.Frame(master=self._root)
         self._frame.grid_columnconfigure(1, weight=1)
@@ -41,8 +42,7 @@ class NewUserView:
         label = ttk.Label(master=self._frame,
                           text="Pleased to meet you, who ever you are")
         self.mesage_label = ttk.Label(master=self._frame,
-                          text="")
-
+                                      text="")
 
         user_name_label = ttk.Label(master=self._frame, text="Name:")
         pw_label = ttk.Label(master=self._frame, text="Password:")

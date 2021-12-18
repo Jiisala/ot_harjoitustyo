@@ -7,10 +7,10 @@ class Problem:
             grading system (not enforced)
         location (String): Location of the problem
         description (String): A short description of the problem
-        img_url (String): Image goes here when the implementation is ready.
+        img_url (String): Path to a image. Defaults to default image
     """
 
-    def __init__(self, name, author, grade, location, descr, img_url) -> None:
+    def __init__(self, name, author, grade, location, descr, img_url="./data/img/kivi.png") -> None:
         self.author = author
         self.name = name
         self.location = location

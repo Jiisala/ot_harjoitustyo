@@ -4,6 +4,9 @@
 /laskarit/viikko2/unicafe/src/tests/__pycache__
 /laskarit/viikko2/unicafe/.coverage
 /laskarit/viikko2/unicafe/htmlcov
+/data/img/*
+!data/img/kivi.gif
+!data/img/kivi_thumbnail.gif
 __MACOSX
 *.sqlite
 .coverage

@@ -20,13 +20,14 @@ class LoginView:
     def destroy(self):
         self._frame.destroy()
 
-    def _login_button_func(self):
+    def _login_button_action(self):
         name = self.user_name_field.get()
         pw = self.pw_field.get()
-        if logic.login(name, pw):
+        try:
+            logic.login(name, pw)
             self._goto_show_main_view()
-        else:
-            print("Here we will figure out that user name or password is wrong")
+        except ValueError:
+            self.message_label["text"] = "Wrong username or password"
 
     def _start(self):
         self._frame = ttk.Frame(master=self._root)
@@ -34,6 +35,7 @@ class LoginView:
         self._frame.configure(padding=15)
 
         label = ttk.Label(master=self._frame, text="Welcome ")
+        self.message_label = ttk.Label(master=self._frame, text="")
         user_name_label = ttk.Label(master=self._frame, text="Name:")
         pw_label = ttk.Label(master=self._frame, text="Password:")
 
@@ -43,7 +45,7 @@ class LoginView:
         sign_in_button = ttk.Button(
             master=self._frame,
             text="Log in",
-            command=self._login_button_func
+            command=self._login_button_action
         )
 
         new_user_button = ttk.Button(
@@ -52,6 +54,7 @@ class LoginView:
             command=self._goto_show_new_user_view)
 
         label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
+        self.message_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
         user_name_label.grid(row=2, column=0, padx=5, pady=5)
         self.user_name_field.grid(row=2, column=1, padx=5, pady=5)
         pw_label.grid(row=3, column=0, padx=5, pady=5)

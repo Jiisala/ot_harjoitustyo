@@ -9,6 +9,7 @@ class UI:
     """Class taking care of UI related things, mainly changing from one view to another.
        Methods should be self explanatory.
     """
+
     def __init__(self, root) -> None:
         self._root = root
         self._view = None

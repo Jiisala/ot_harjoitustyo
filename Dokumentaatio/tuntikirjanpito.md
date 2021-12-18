@@ -16,4 +16,7 @@
  07.12  | 4 | Ohjelmointia, sekvenssikaavion laatiminen, testejä
  13.12  | 5 | Ohjelmointia, vierityspalkki toimii vihdoin!, Dockstringien kirjoittelua 
  14.12  | 5 | Testausta, Dokumentaatiota, ohjelmointia
-YHT: 58
+ 16.12  | 3 | Testausta, ohjelmointia, Pillow kirjastoon tutustumista
+ 17.12  | 3 | Ohjelmointia, kuvien lisääminen toteutettu
+ 18.12  | 4 | Refaktorointia, kuvien lisäämisen korjailua
+YHT: 68

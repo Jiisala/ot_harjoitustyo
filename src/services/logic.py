@@ -1,12 +1,11 @@
 
-
+import shutil
 from PIL import UnidentifiedImageError
+from PIL import Image
 from repositories.problems import problems as default_problems
 from repositories.users import users as default_users
 from entities.problem import Problem
 from entities.user import User
-import shutil
-import os
 
 
 class Logic:
@@ -32,7 +31,7 @@ class Logic:
 
         """
 
-        self._users.add_user(User(name, password))
+        return self._users.add_user(User(name, password))
 
     def new_problem(self, name, grade, location, description, img_url):
         """Creates new problem by sending necessary info to the class handling
@@ -75,21 +74,24 @@ class Logic:
             name (String): Username
             password (String): Password
 
-        Returns:
-            Boolean: Information if the login was succesfull or not
+        Raises:
+            ValueError if not succesfull
         """
 
         user = self._users.get_user(name)
         if user:
             if self.check_pw(user, password):
                 self.current_user = user
-                return True
+                # return True
             else:
-                print("check password error handling goes here")
-                return False
+                raise ValueError
+        else:
+            raise ValueError
 
-        print("user not found error handling goes here")
-        return False
+    def log_out(self):
+        """Changes value of self.current_user to None
+        """
+        self.current_user = None
 
     def check_pw(self, user, password):
         """Checks if the password given matches the given users password
@@ -110,10 +112,10 @@ class Logic:
             name (String): Username
 
         Returns:
-            Boolean: Knowledge of existance or lack of existance
+            user if user exists
         """
         user = self._users.get_user(name)
-        return True if user else False
+        return user
 
     def get_all_problems(self):
         """call to fetch all problems from the database
@@ -139,9 +141,10 @@ class Logic:
             problem (problem): problem entity
         """
         self._problems.mark_solved(value, problem, self.current_user)
-    
+
     def handle_img_path(self, img_path):
-        """shortens path to image to image name and calls copy_image function
+        """shortens path to image to image name and calls copy_image function,
+        and create_thumbnail function
 
         Args:
             img_url (Str): Path to image in file
@@ -149,19 +152,52 @@ class Logic:
         Raises:
             UnidentifiedImageError: unsupported image type
         """
-        img_name= img_path.split("/")[-1]
-        
-        if img_name.split(".")[-1] not in ["jpg","jpeg","png","gif", "bmp"]: 
+        img_name = img_path.split("/")[-1]
+
+        if img_name.split(".")[-1] not in ["jpg", "jpeg", "png", "gif", "bmp"]:
             raise UnidentifiedImageError
+        self.create_thumbnail(img_path)
         self.copy_image(img_path)
-        return img_name    
-        
+
+        return img_name
+
     def copy_image(self, img_path):
-        """Copies image to programs img folder 
-        """ 
-        try:    
+        """Copies image to programs img folder
+        """
+        try:
             shutil.copy(img_path, "./data/img/")
         except shutil.SameFileError:
-            pass       
+            pass
+
+    def create_thumbnail(self, img_path):
+        """creates thumbnnail from image in given path
+
+        Args:
+            img_url (Str): path to image file
+
+        """
+
+        with Image.open(img_path) as pic:
+            name_and_ext = img_path.split("/")[-1]
+            name = name_and_ext.split(".")[0]
+            ext = name_and_ext.split(".")[-1]
+            pic.thumbnail((200, 200))
+            pic.save(f"./data/img/{name}_thumbnail.{ext}", ext)
+
+    def get_path_to_thumbnail(self, img_path):
+        """Function to get path to thumbnail of given image
+
+        Args:
+            img_path (Str): Path to a image
+
+        Returns:
+            Str: Path to thumbnail
+        """
+        name_and_ext = img_path.split("/")[-1]
+        name = name_and_ext.split(".")[0]
+        ext = name_and_ext.split(".")[-1]
+
+        return f"./data/img/{name}_thumbnail.{ext}"
+
 
 logic = Logic()

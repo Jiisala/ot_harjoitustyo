@@ -19,8 +19,10 @@ class Users:
 
         Args:
             user : User entity
+        Raises:
+            ValueError if username already in use
         Returns:
-            Boolean: Knowledge if the database operation wass successfull
+            True if succesfull, mainly for testing purposes
         """
         if self.get_user(user.name) is None:
 
@@ -31,9 +33,9 @@ class Users:
                            (name, password)
                            )
             self._connection.commit()
-        else:
-            raise ValueError    
-        
+            return True
+
+        raise ValueError
 
     def get_users(self):
         """function to get all users from database
