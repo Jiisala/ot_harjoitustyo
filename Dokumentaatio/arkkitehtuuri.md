@@ -57,5 +57,6 @@ Problems luokan add_problem metodi, purkaa tiedot tietokannan ymmärtämään mu
 
 Add_to_uxp metodi viimeistelee reitin lisäämisen, lisäämällä sen ja tiedon käyttäjästä uxp tietokantaan. Tietokantaan lisätään myös numero 0 tiedoksi siitä että reittiä ei ole vielä merkitty kiivetyksi. Uxp tietokantaan lisäämisen jälkeen reitti näkyy käyttäjän päänäkymässä, ellei sitä poisteta tietokannasta.
 
-Kun uusti reitti on lisätty onnistuneesti, näkymään ilmestyy teksti, jossa asiasta kerrotaan käyttäjälle. Käyttäjä voi nyt joko poistua päänäkymään tai lisätä uuden ongelman.
- 
+Kun uusi reitti on lisätty onnistuneesti, näkymään ilmestyy teksti, jossa asiasta kerrotaan käyttäjälle. Käyttäjä voi nyt joko poistua päänäkymään tai lisätä uuden ongelman.
+Oheinen kaavio kuvaa saman prosessin suurpiirteisesti. 
+![sekvenssikaavio](./img/sekvenssikaavio.png)
