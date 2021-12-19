@@ -50,11 +50,11 @@ poetry run invoke dbinit
 ```bash
 poetry run invoke start
 ```
-### Komentorivitoiminnot
+### Muut komentorivitoiminnot
 
-- Käynnistys:
+- Pylint tarkistus koodille:
 ```bash
-poetry run invoke start
+poetry run invoke lint
 ```
 - testaus:
 ```bash
@@ -65,3 +65,8 @@ poetry run invoke tests
 poetry run coverage-report
 ```
 Raportti tulostetaan konsoliin, sekä kansioon /htmlcov 
+
+- Pylint automaattimuotoilu koodille:
+```bash
+poetry run invoke format
+```
