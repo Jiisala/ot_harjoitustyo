@@ -9,7 +9,7 @@ Sovellukseen voi luoda useampia käyttäjiä. Käyttäjät voivat selata sovellu
 
 ## Käyttöliittymä
 
-Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista siirtyä käyttäjä luomiseen. Kirjautumisen jälkeen siirrytään käyttäjän omalle etusivulle. Oletusnäkymänä on listatut, mutta kiipeämättömät reitit. Kiivettyjen reittien listaaminen, reittien yksityikohtien tutkiminen ja reittien lisääminen toimivat omissa näkymissään.
+Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista siirtyä käyttäjä luomiseen. Kirjautumisen jälkeen siirrytään käyttäjän omalle etusivulle. Etusivulla on listattu käyttäjän valitsemat reitit. Reittien lisääminen ja kaikkien käyttäjien lisäämien reittien selaaminen toimivat omissa näkymissään.
 
 ## Toiminnallisuus 
 
@@ -19,33 +19,41 @@ Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista si
 
 ### Sisäänkirjautumisen jälkeen
 
-* [x] Näkymässä näkyvät reitit näkyvät oletusarvoisesti kiipeämättömät reitit lisäyspäivän mukaan järjestettyinä (uusin ylimpänä.
-  * [x] järjestyksen voi halutessaan muuttaa myös niin että reitit järjestetään vaikeudenm tai nimen mukaan.
-  * [x] jarjestyksen voi halutessaan kääntää laskevasti.
+* Näkymässä näkyvät reitit näkyvät käyttäjän valitsemat reitit, oletusarvoisesti järjestettynä nimen mukaan, kiipeämättömät reitit ensin.
+  * järjestyksen voi halutessaan muuttaa myös niin että reitit järjestetään vaikeuden, lisääjän käyttäjänimen tai sijainnin mukaan.
+  * jarjestyksen voi halutessaan kääntää laskevasti.
 
-*  Voidaan vaihtaa näkymä näyttämään jo kiivetyt reitit
-  * [x] samat järjestystoiminnot toimivat yhä
 
-* voidaan vaihtaa näkymä näyttämään sovllukseen lisätyt mutta omalta listalta puuttuvat reitit
-  * [x] samat järjestystoiminnot toimivat täälläkin
+* voidaan vaihtaa näkymä näyttämään kaikki sovllukseen lisätyt reitit
+  * samat järjestystoiminnot toimivat täälläkin
 
 *  Näkymässä on nappi josta voidaan lisätä uusi reitti
   * reitin tiedot kysytään omassa ikkunassaan
    
 
-#### Lisätystä reitistä tallennetaan ainakin: 
+#### Lisätystä reitistä tallennetaan: 
 
 * lisääjän käyttäjänimi 
 * reitin  nimi
 * vaikeusaste 
   * käytetään boulderointiin sopivaa merkintätapaa joka alkaa numerosta 4 ja vaikeutuessaan kasvaa. 
   * Numeron perään voidaan lisätä kirjain a, b, tai c, ja sen jälkeen + tai -
-* [ ] kuva reitistä
+* kuva reitistä
 *  sijainti (vapaa tekstikenttä, ajankäytöllisistä syistä)
 *  lyhyt kuvaus
  
  
-## Mahdollisia laajennusideoita jos jää aikaa
+## Ohjelmaan jääneet puutteet, sisältäen hieman itsereflektiota
+
+* Käyttöliittymä on erittäin epäesteettinen, esteellinen ja kaipaisi paljon työstöä. Tämän kurssin puitteissa se on kuitenkin käsittääkseni riittävä ja ajankäytöllisistä syistä päätin jättää sen kuten se on. 
+* Ohjelman tietoturva on myös retuperällä, esimerkiksi salasanat tallennetaan salaamattomana tekstinä avoimeen tietokantaan.
+* Kuvien käsittelyn voisi refaktoroida omaksi luokakseen, nyt se tapahtuu mielestäni heieman kömpelösti sovelluslogiikka luokassa, ketjutetuissa funktioissa. 
+Aikataulusyistä myös tämä jää tuonnemmaksi.
+* Käyttöliittymässä, on useissa luokissa runsaasti toisteista koodia, tämän ongelman voisis varmasti korvata.
+* Lisäksi näkymien luomisesta vastaavissa luokissa on järjestämiseen liittyvää toiminnallisuutta jonka voisi siirtää myös sovelluslogiikkaan. Annoin asian olla koska sitä käytetään hieman erilailla eri näkymissä ja sen siirtäminen olisi vaatinut enemmän refaktorointia, kuin koin järkeväksi sen eteen tehdä.
+* Täysikokoisteh kuvien näyttämiseen käytetään järjestelmän oletusohjelmaa. Mikäli käyttöliittymän päivitys tapahtuu joskus, tämä toiminnallisuus siirtynee ohjelman sisäiseksi toteutukseksi.
+
+## Mahdollisia laajennusideoita 
 
 * käyttäjätietojen hallinta
   * käyttäjä voi esim. vaihtaa nimensä ja salasanansa 
