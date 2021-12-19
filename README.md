@@ -52,10 +52,6 @@ poetry run invoke start
 ```
 ### Muut komentorivitoiminnot
 
-- Pylint tarkistus koodille:
-```bash
-poetry run invoke lint
-```
 - testaus:
 ```bash
 poetry run invoke tests
@@ -65,6 +61,11 @@ poetry run invoke tests
 poetry run coverage-report
 ```
 Raportti tulostetaan konsoliin, sekä kansioon /htmlcov 
+
+- Pylint tarkistus koodille:
+```bash
+poetry run invoke lint
+```
 
 - Pylint automaattimuotoilu koodille:
 ```bash
