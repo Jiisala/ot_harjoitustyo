@@ -14,7 +14,7 @@ Ohjelman luokka/pakkausrakenne vastaa karkealla tasolla seuraavaa kuvaa.
 
 ## Näkymät
 
-Ohjelmassa on useita erilaisia näkymiä. Ohjelman käynnistyessä aukeaa kirjautumisnäkymä, josta voi joko kirjautua sisään antamalla validin käyttäjänimen ja salasanan, tai siirtyä toiseen näkymään luomaan uuden käyttäjän. Ennen kuin uuden käyttäjän luominen onnistuu, tarkistaa ohjelma että samaa käyttäjänimeä ei ole vielä toisella käyttäjällä
+Ohjelmassa on useita erilaisia näkymiä. Ohjelman käynnistyessä aukeaa kirjautumisnäkymä, josta voi joko kirjautua sisään antamalla validin käyttäjänimen ja salasanan, tai siirtyä toiseen näkymään luomaan uuden käyttäjän. Ennen kuin uuden käyttäjän luominen onnistuu, tarkistaa ohjelma että samaa käyttäjänimeä ei ole vielä toisella käyttäjällä. Mikäli tietokantaan lisäminen ei onnistu tai nimi on jo käytössä ohjelma antaa käyttäjälle virheilmoituksen.
 
 Uuden käyttäjän luomisen tai onistuneen sisäänkirjautumisen jälkeen aukeaa päänäkymä johon on listattu kaikki kyseisen käyttäjän itselleen tagaamat reitit. Ensimmäisellä käynnistyksellä tässä ei luonnolliseti näy mitään. Reitit on oletusarvoisesti järjestetty nimen mukaiseen aakkosjärjestykseen, kiipeämättömät ensin.
 
@@ -22,9 +22,11 @@ Järjestystä voi muuttaa valitsemalla järjestysperusteen valikosta ja painamal
 
 Reitin tietojen vieressä on nappi jota painamalla voi reitin merkitä kiivetyksi tai poistaa merkinnän. Tieto tästä tallentuu tietokantaan, uxp tauluun, joka pitää kirjaa käyttäjän itselleen lisäämistä reiteistä.
 
-Uuden reitin lisääminen tapahtuu omassa näkymässään johon siirrytään päänäkymästä löytyvää nappia painamalla. Näkymässä on joukko tekstikenttiä joihin syötetään uuden reitin tiedot. Tiedot tallenetaan tietokantan ja niiden muotoilua ei varsinaisesti vahdita mitenkään. Ohjelma ainoastaaan tarkistaa että saman nimistä reittiä ei vielä löydy tietokannasta.
+Reitin kuvaa klikkaamalla, aukeaa kuva alkuperäisessä koossa järjestelmän oletus kuva-ohjelmaan.
 
-Päänäkymästä pääsee myös siirtymään näkymään jossa voi tarkastella kaikkien käyttäjien ohjelmaan lisäämiä reittejä, tässä näkymässä toimivat samat järjestys toiminnnot kuin päänäkymässäkin. 
+Uuden reitin lisääminen tapahtuu omassa näkymässään johon siirrytään päänäkymästä löytyvää nappia painamalla. Näkymässä on joukko tekstikenttiä joihin syötetään uuden reitin tiedot. Tiedot tallenetaan tietokantan ja niiden muotoilua ei varsinaisesti vahdita mitenkään. Ohjelma ainoastaaan tarkistaa että saman nimistä reittiä ei vielä löydy tietokannasta ja että nimi ei ole niin pitkä, että se rikkoisi graafisenkäyttöliittymän. Näkymässä on myös nappi jota painamalla avautuu käyttöjärjeselmän oma tiedostonlataus dialogi, kuvan lisäämistä varten. 
+
+Päänäkymästä pääsee myös siirtymään näkymään jossa voi tarkastella kaikkien käyttäjien ohjelmaan lisäämiä reittejä, tässä näkymässä toimivat samat järjestystoiminnnot kuin päänäkymässäkin. 
 
 Reitin tietojen vieressä on tässä näkymässä nappi josta painamalla reitin voi tagata itsellensä, tai poistaa tagin. Nappia painamalla reitti ja ohjelman sen hetkinen käyttäjä lisätään uxp tietokantaan. Mikäli reitti on jo kertaalleen tagattu, painaminen poistaa vastaaavan rivin tietokannasta. Samassa tietokannassa säilytetään myös tietoa onko käyttäjä merkinnyt reitin kiivetyksi, mikäli tagaus poistetaan, myös tämä tieto katoaa.
 Tagatut reitit näkyvät päänäkymässä käyttäjän palatessa sinne seuraavan kerran. 
@@ -47,13 +49,13 @@ Tämä tulee tehdä ennen ensimmäistä käynnistystä sillä se luo tarvittavat
 
 ## Sovelluksen toiminta
 Sovelluksen toimintaa on kuvattu jo monin paikoin aikaisemmin tekstissä. Esimerkin vuoksi kuitenkin käykäämme läpi tarkemmin mitä tapahtuu kun käyttäjä luo uuden reitin. 
-Alkuasetelmassa sisäänkirjautunut käyttäjä on täyttänyt new problem näkymän kentät ja painaa Create nappulaa. Nappulan toiminnasta vastaava _new_problem_button_fuct metodi noutaa tekstikenttien tiedot ja välittää ne logic luokan metodille new_problem.
+Alkuasetelmassa sisäänkirjautunut käyttäjä on täyttänyt new problem näkymän kentät ja painaa Create nappulaa. Nappulan toiminnasta vastaava _new_problem_button_funct metodi noutaa tekstikenttien tiedot ja välittää ne logic luokan metodille new_problem.
 
-new_problem metodi täydentää tietoja lisäämällä reitin luojaksi nykyisen käyttäjän, joka on tallennettu oliomuuttujaan current user. Sen jälkeen metodi välittää problems luokan metodille add_problem problem olion joka luodaan metodikutsun yhteydessä. Problem olion parametreina käytetään edellisissä kohdissa kerättyjä tietoja.
+new_problem metodi täydentää tietoja lisäämällä reitin luojaksi nykyisen käyttäjän, joka on tallennettu oliomuuttujaan current_user. Sen jälkeen metodi välittää problems-luokan metodille add_problem problem olion, joka luodaan metodikutsun yhteydessä. Problem olion parametreina käytetään edellisissä kohdissa kerättyjä tietoja.
 
-Problems luokan add.problem metodi, purkaa tiedot tietokannan ymmärtämään muotoon, tarkistaa ettei saman nimistä ongelmaa ole jo olemassa ja muodostaa tietokantayhteyden, jonka kautta tiedot kirjoitetaan tietokantaan, problems tauluun. Sen jälkeen metodi välittää vielä tiedot reitistä ja käyttäjästä saman luokan add_to_uxp metodille.
+Problems luokan add_problem metodi, purkaa tiedot tietokannan ymmärtämään muotoon, tarkistaa ettei saman nimistä ongelmaa ole jo olemassa ja muodostaa tietokantayhteyden, jonka kautta tiedot kirjoitetaan tietokantaan, problems tauluun. Sen jälkeen metodi välittää vielä tiedot reitistä ja käyttäjästä saman luokan add_to_uxp metodille.
 
 Add_to_uxp metodi viimeistelee reitin lisäämisen, lisäämällä sen ja tiedon käyttäjästä uxp tietokantaan. Tietokantaan lisätään myös numero 0 tiedoksi siitä että reittiä ei ole vielä merkitty kiivetyksi. Uxp tietokantaan lisäämisen jälkeen reitti näkyy käyttäjän päänäkymässä, ellei sitä poisteta tietokannasta.
 
-Ohjelman tämän hetkisessä versiossa ei käyttäjälle palaudu mitään tietoa siitä onko reitti lisätty onnistuneesti vai ei. Tämä toiminnallisuus toteutunee ennen loppupalautusta.
+Kun uusti reitti on lisätty onnistuneesti, näkymään ilmestyy teksti, jossa asiasta kerrotaan käyttäjälle. Käyttäjä voi nyt joko poistua päänäkymään tai lisätä uuden ongelman.
  
