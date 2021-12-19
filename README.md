@@ -14,6 +14,8 @@
  Uutta reittiä luodessa voi reitille valita kuvan, painamalla Select image-nappia. Nappia painamalla avautuu käyttöjärjestelman oma tiedostonvalinta näkymä. Kun kuva on valittu, ohjelma tarkistaa että se on jossakin ohjelman sallimassa tiedostomuodossa (tarkistamalla päätteen). Sallitut päätteet ovat jpg, jpeg, gif, png ja bmp. Ohjelma kopioi valitun kuvan ohjelman juuresta löytyvään ```.data/img/``` kansioon ja luo siitä thumbnailin, joka talletetaan samaan kansioon. mikäli kuvaa ei valita käyttää ohjelma oletuskuvaa. Reitin nimen pituus on rajattu maksimissaan kahteenkymmeneenviiteen kirjaimeen, koska liian pitkät nimet rikkovat graafisen käyttöliittymän. 
  
  Testikattavuus on hyvä, testit testaavat reitin ja käyttäjän luomisesta huolehtivia luokkia sekä varsinaista sovelluslogiikkaa.
+ 
+  Ohjelmassa on viimeisimmässä versiossa otetty käyttöön ![Pillow](https://github.com/python-pillow/Pillow) kirjasto, jonka avulla on aikaansaatu kuvien käsittelyyn ja esittämiseen liittyvä toiminnallisuus. Pillow on laajennettu versio pythonin standardi PIL kirjastosta. 
 
 ### HUOM! 
 Sisään voi kirjautua joko luomalla uuden käyttäjän tai testikäyttäjänä
