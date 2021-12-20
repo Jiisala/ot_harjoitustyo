@@ -19,4 +19,5 @@
  16.12  | 3 | Testausta, ohjelmointia, Pillow kirjastoon tutustumista
  17.12  | 3 | Ohjelmointia, kuvien lisääminen toteutettu
  18.12  | 4 | Refaktorointia, kuvien lisäämisen korjailua
-YHT: 68
+ 20.12  | 2 | Dokumentaation viimeistelyä, koodin siistimistä, viimeinen palautus
+YHT: 70
