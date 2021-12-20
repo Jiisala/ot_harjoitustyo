@@ -31,7 +31,7 @@ poetry run invoke start
 ## Käyttäminen
 
 Sovellus käynnistyy kirjautumisnäkymään, kirjaudu syöttämällä olemassa oleva käyttäjänimi ja siihen kuuluva salasana ja painamalla sign in nappia.
-Voit myös luoda uuden käyttäjän siirtymällä uuden käyttäjän luomis näkymään, painamalla create new user nappia.
+Voit myös luoda uuden käyttäjän siirtymällä uuden käyttäjän luomis-näkymää, painamalla create new user nappia.
 Uuden käyttäjän luodaksesi anna käyttäjänimi ja salasana, käyttäjänimen on oltava ohjelmassa uniikki. Mikäli nimi on jo käytössä keksi uusi ja omaperäisempi nimi.
 Luotuasi uuden käyttäjän ohjelma kirjaa sinut sisään automaattisesti.
 
@@ -40,8 +40,8 @@ Uuden reitin pääset lisäämään painamalla New problem nappia. Uusi reitti l
 Kaikkien käyttäjien lisäämiä reittejä, mikäli niitä on, pääset tarkastelemaan päänäkymän Browse problems-nappia paimalla. 
 Reittien tarkastelu aukeaa myös omaan näkymäänsä, painamalla tässä näkymässä tag/untag nappia lisätään reitti omalle listallesi, tai poistetaan sieltä.
 Päänäkymässä nappi Solved/unsolved merkitsee reitin kiivetyksi tai poistaa merkinnän.
-Sekä päänäkymässä että ongelmien selaus näkymässä on valikko josta voi valita järjestelyperusteen. order ^ / order v-nappi vaihtaa järjestyksen joko nousevaksi tai laskevaksi. 
+Sekä päänäkymässä että ongelmien selaus-näkymässä on valikko josta voi valita järjestelyperusteen. order ^ / order v-nappi vaihtaa järjestyksen joko nousevaksi tai laskevaksi. 
 Reitin kuvaa klikkaamalla aukeaa kuva täysikokoisena järjestelmäsi oletus kuva-sovlluksessa.
-Sign out nappi palauttaa sinut sisäänkirjautumis ruutuun.
+Sign out nappi palauttaa sinut sisäänkirjautumis-näkymään.
 
 
