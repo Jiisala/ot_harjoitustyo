@@ -36,6 +36,8 @@ Ohjelman käynnistyessä ensimmäistä kertaa päänäkymässä ei näy reittej�
 
 [Arkkitehtuurikuvaus](https://github.com/Jiisala/ot_harjoitustyo/blob/main/Dokumentaatio/arkkitehtuuri.md)
 
+[Testiraportti](https://github.com/Jiisala/ot_harjoitustyo/blob/main/Dokumentaatio/testaus.md)
+
 ### Asennus
 - lataa sovelluksen uusin release:
   [Release](https://github.com/Jiisala/ot_harjoitustyo/releases/tag/Viikko5)
