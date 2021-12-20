@@ -21,3 +21,5 @@
  18.12  | 4 | Refaktorointia, kuvien lisäämisen korjailua
  20.12  | 2 | Dokumentaation viimeistelyä, koodin siistimistä, viimeinen palautus
 YHT: 70
+
+Tämä oli ensimmäinen vähänkään laajempi projekti jonka toteutin pythonia käyttäen, tunteihin sisältyy runsaasti tiedonhakua.
