@@ -49,7 +49,7 @@ Sovelluksen käynnistyessä aukeaa kirjautumisnäkymä, siitä on mahdollista si
 * Ohjelman tietoturva on myös retuperällä, esimerkiksi salasanat tallennetaan salaamattomana tekstinä avoimeen tietokantaan.
 * Kuvien käsittelyn voisi refaktoroida omaksi luokakseen, nyt se tapahtuu mielestäni heieman kömpelösti sovelluslogiikka luokassa, ketjutetuissa funktioissa. 
 Aikataulusyistä myös tämä jää tuonnemmaksi.
-* Käyttöliittymässä, on useissa luokissa runsaasti toisteista koodia, tämän ongelman voisis varmasti korvata.
+* Käyttöliittymässä, on useissa luokissa toisteista koodia.
 * Lisäksi näkymien luomisesta vastaavissa luokissa on järjestämiseen liittyvää toiminnallisuutta jonka voisi siirtää myös sovelluslogiikkaan. Annoin asian olla koska sitä käytetään hieman erilailla eri näkymissä ja sen siirtäminen olisi vaatinut enemmän refaktorointia, kuin koin järkeväksi sen eteen tehdä.
 * Täysikokoisteh kuvien näyttämiseen käytetään järjestelmän oletusohjelmaa. Mikäli käyttöliittymän päivitys tapahtuu joskus, tämä toiminnallisuus siirtynee ohjelman sisäiseksi toteutukseksi.
 * Repositorioluokat Problems ja Users olisi voinut nimetä paremmin, kuten myös vertaisarvioija huomautti. Luokkia nimetessäni ne tuntuivat järkeviltä, olen sittemmin tullut toisiin aatoksiin, mutta en rohkene enää projektin tässä vaiheessa muuttaa niitä.
