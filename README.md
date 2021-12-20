@@ -40,7 +40,7 @@ Ohjelman käynnistyessä ensimmäistä kertaa päänäkymässä ei näy reittej�
 
 ### Asennus
 - lataa sovelluksen uusin release:
-  [Release](https://github.com/Jiisala/ot_harjoitustyo/releases/tag/Viikko5)
+  [Release](https://github.com/Jiisala/ot_harjoitustyo/releases/tag/Viikko7)
 
 - Asenna tarvittavat riippuvuudet komennolla:
 ```bash
