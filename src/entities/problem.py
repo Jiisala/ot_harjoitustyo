@@ -10,7 +10,7 @@ class Problem:
         img_url (String): Path to a image. Defaults to default image
     """
 
-    def __init__(self, name, author, grade, location, descr, img_url="./data/img/kivi.png") -> None:
+    def __init__(self, name, author, grade, location, descr, img_url="./data/img/kivi.gif"):
         self.author = author
         self.name = name
         self.location = location

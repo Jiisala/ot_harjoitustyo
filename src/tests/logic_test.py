@@ -7,6 +7,8 @@ from services.logic import logic
 
 
 class TestLogic(unittest.TestCase):
+    """Collection of tests testing the logic class, and general program logic.
+    """
 
     def setUp(self):
 
@@ -143,7 +145,7 @@ class TestLogic(unittest.TestCase):
     def test_handle_img_path_returns_img_name(self):
         self.reset_db_between_tests()
         self.assertEqual(self.test_logic.handle_img_path(
-            "./data/img/kivi.png"), "kivi.png")
+            "./data/img/kivi.gif"), "kivi.gif")
 
     def test_handle_img_path_accepts_only_img_formats(self):
         self.reset_db_between_tests()

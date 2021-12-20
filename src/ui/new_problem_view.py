@@ -1,12 +1,9 @@
 from tkinter import ttk
-from tkinter.constants import END
-
+from tkinter.filedialog import askopenfilename
 from PIL import UnidentifiedImageError
 from services.logic import logic
-from tkinter.filedialog import askopenfilename
 
-import shutil
-import os
+
 
 
 class NewProblemView:
@@ -17,7 +14,6 @@ class NewProblemView:
         self._root = root
 
         self._goto_main_view = goto_main_view
-       # self._frame = None
 
         self._start()
 
@@ -25,11 +21,18 @@ class NewProblemView:
         self._frame.destroy()
 
     def _new_problem_button_funct(self):
+        """functionality to create new problem. Name restricted to 25 characters, because too long names break the UI
+        If UI gets re-done, restriction can be removed.
+        """
+        
         name = self._problem_name_field.get()
+        if len(name) > 25:
+            self.message_label["text"] = "Name too long, please use less than 25 characters"
+            return
         grade = self._grade_field.get()
         location = self._location_field.get()
         description = self._description_field.get()
-        img_url = f"./data/img/{self._img_field.get()}"
+        img_url = f"./data/img/{self._img_name_label['text']}"
 
         if len(name) == 0:
             self.message_label["text"] = "Please give your problem a name"
@@ -42,19 +45,19 @@ class NewProblemView:
                 self.message_label["text"] = f"Problem named {name} already exists."
 
     def _select_image_button_funct(self):
-        """This will open system dialg for selecting file and send path to selected file to logic.handle_img_path
-           If selected file was image of supported type, it will insert name of the image to corresponding entryfield
+        """This will open system dialg for selecting file and send the path of selected file to logic.handle_img_path.
+           If selected file was image of supported type, it will insert name of the image to corresponding label
         """
 
         img_path = askopenfilename()
-        img_name = self._img_field.get()
+        img_name = self._img_name_label["text"]
         try:
             img_name = logic.handle_img_path(img_path)
         except UnidentifiedImageError:
             self.message_label["text"] = "Image filetype not supported. Please use .gif, .png, .jpg, jpeg or .bmp"
             pass
-        self._img_field.delete(0, END)
-        self._img_field.insert(0, img_name)
+       
+        self._img_name_label["text"] = img_name
 
     def _start(self):
         self._frame = ttk.Frame(master=self._root)
@@ -75,10 +78,10 @@ class NewProblemView:
         self._grade_field = ttk.Entry(master=self._frame)
         self._location_field = ttk.Entry(master=self._frame)
         self._description_field = ttk.Entry(master=self._frame)
-        self._img_field = ttk.Entry(master=self._frame)
-        self._img_field.insert(0, "kivi.gif")
+        self._img_name_label = ttk.Label(master=self._frame, text="kivi.gif")
+        
         self._img_button = ttk.Button(
-            master=self._frame, text="kuva", command=self._select_image_button_funct)
+            master=self._frame, text="Select image", command=self._select_image_button_funct)
 
         create_button = ttk.Button(
             master=self._frame,
@@ -103,7 +106,7 @@ class NewProblemView:
         description_label.grid(row=5, column=0, padx=5, pady=5)
         self._description_field.grid(row=5, column=1, padx=5, pady=5)
         img_label.grid(row=6, column=0, padx=5, pady=5)
-        self._img_field.grid(row=6, column=1, padx=5, pady=5)
+        self._img_name_label.grid(row=6, column=1, padx=5, pady=5)
         self._img_button.grid(row=6, column=2)
 
         create_button.grid(row=7, column=0, padx=5, pady=5)

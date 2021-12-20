@@ -6,6 +6,5 @@ connection.isolation_level = None
 
 connection.row_factory = sqlite3.Row
 
-
 def get_connection():
     return connection

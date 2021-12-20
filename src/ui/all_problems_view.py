@@ -1,6 +1,5 @@
-from tkinter import ttk, Canvas, Scrollbar, OptionMenu, StringVar, PhotoImage
+from tkinter import ttk, Canvas, Scrollbar, OptionMenu, StringVar
 from PIL import Image, ImageTk
-
 from services.logic import logic
 import textwrap
 
@@ -33,7 +32,7 @@ class AllProblemsView:
             length (int, optional): length of a line. Defaults to 40.
 
         Returns:
-            String: String wrapped so that maximun line length is length ginven
+            String: String, wrapped so that maximun line length is length given
         """
         return "\n".join(textwrap.wrap(string, length))
 
@@ -197,8 +196,8 @@ class AllProblemsView:
         )
 
         header_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
-        self.dropdown.grid(row=1, column=0)
-        sort_button.grid(row=1, column=1)
+        self.dropdown.grid(row=1, column=0, padx=5, pady=5, sticky="W")
+        sort_button.grid(row=1, column=1, padx=5, pady=5,sticky="W")
         self._p_frame.grid(row=2, column=0, columnspan=2,
                            padx=5, pady=5, sticky="EW")
         main_view_button.grid(row=3, column=0, padx=5, pady=5, sticky="W")

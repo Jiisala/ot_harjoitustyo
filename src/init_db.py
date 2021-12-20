@@ -29,7 +29,7 @@ def create_database(connection):
             name TEXT,
             pw TEXT 
         )
-    """)  # Reference primary keay users breaks the test, find out why
+    """)
     cursor.execute("""
         CREATE TABLE problems (
             id INTEGER PRIMARY KEY,
@@ -53,8 +53,7 @@ def create_database(connection):
 
 
 def create_default_user(connection):
-    """Creates default user for development time purposes,
-       most propably will get deleted from the final version
+    """Creates default user for development time purposes
 
     Args:
         connection : Database connection

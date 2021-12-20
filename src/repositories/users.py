@@ -6,7 +6,7 @@ class Users:
     """Takes care of all user related database operations
     """
 
-    def __init__(self, connection) -> None:
+    def __init__(self, connection):
         """sets up database_connection
 
         Args:

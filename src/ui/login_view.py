@@ -1,5 +1,5 @@
+from sqlite3.dbapi2 import DatabaseError
 from tkinter import ttk
-#from repositories.users import Users
 from services.logic import logic
 
 
@@ -7,13 +7,11 @@ class LoginView:
     """Login view, nothing too complicated here
     """
 
-    def __init__(self, root, goto_new_user_view, goto_show_main_view) -> None:
+    def __init__(self, root, goto_new_user_view, goto_show_main_view):
         self._root = root
         self._goto_show_new_user_view = goto_new_user_view
         self._goto_show_main_view = goto_show_main_view
         self._frame = None
-
-       # self._root.configure(background= "black")
 
         self._start()
 
@@ -28,6 +26,8 @@ class LoginView:
             self._goto_show_main_view()
         except ValueError:
             self.message_label["text"] = "Wrong username or password"
+        except DatabaseError:
+            self.message_label["text"] = "Faulty database, reinitialize database and launch program again"
 
     def _start(self):
         self._frame = ttk.Frame(master=self._root)

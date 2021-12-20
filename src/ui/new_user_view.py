@@ -1,3 +1,4 @@
+from sqlite3.dbapi2 import DatabaseError
 from tkinter import ttk
 from services.logic import logic
 
@@ -6,7 +7,7 @@ class NewUserView:
     """A view for creating new users.
     """
 
-    def __init__(self, root, goto_login_view, goto_main_view) -> None:
+    def __init__(self, root, goto_login_view, goto_main_view):
         self._root = root
         self._goto_login_view = goto_login_view
         self._goto_main_view = goto_main_view
@@ -32,7 +33,9 @@ class NewUserView:
                 logic.login(name, pw)
                 self._goto_main_view()
             except ValueError:
-                self.mesage_label["text"] = "Username already exists"
+                self.message_label["text"] = "Username already exists"
+            except DatabaseError:
+                self.message_label["text"] = "Faulty database, reinitialize database and launch program again"
 
     def _start(self):
         self._frame = ttk.Frame(master=self._root)
@@ -41,7 +44,7 @@ class NewUserView:
 
         label = ttk.Label(master=self._frame,
                           text="Pleased to meet you, who ever you are")
-        self.mesage_label = ttk.Label(master=self._frame,
+        self.message_label = ttk.Label(master=self._frame,
                                       text="")
 
         user_name_label = ttk.Label(master=self._frame, text="Name:")
@@ -64,7 +67,7 @@ class NewUserView:
         )
 
         label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
-        self.mesage_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
+        self.message_label.grid(row=1, column=0, columnspan=2, padx=5, pady=5)
         user_name_label.grid(row=2, column=0, padx=5, pady=5)
         self._user_name_field.grid(row=2, column=1, padx=5, pady=5)
         pw_label.grid(row=3, column=0, padx=5, pady=5)

@@ -1,8 +1,8 @@
 class User:
     """User entity
     Attributes:
-        name(string): username
-        password(string): password
+        name(Str): username
+        password(Str): password
     """
 
     def __init__(self, name, password) -> None:

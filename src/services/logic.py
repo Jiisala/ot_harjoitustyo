@@ -51,7 +51,7 @@ class Logic:
 
     def add_problem_to_uxp(self, problem):
         """Adds problem and current user to uxp database by sending necessary
-           information to class handling communication with the database.
+           information to the class handling communication with the uxp database.
 
         Args:
             problem (problem): problem entity to add
@@ -82,7 +82,6 @@ class Logic:
         if user:
             if self.check_pw(user, password):
                 self.current_user = user
-                # return True
             else:
                 raise ValueError
         else:
