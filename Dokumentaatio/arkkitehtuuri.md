@@ -53,10 +53,12 @@ Alkuasetelmassa sisäänkirjautunut käyttäjä on täyttänyt new problem näky
 
 new_problem metodi täydentää tietoja lisäämällä reitin luojaksi nykyisen käyttäjän, joka on tallennettu oliomuuttujaan current_user. Sen jälkeen metodi välittää problems-luokan metodille add_problem problem olion, joka luodaan metodikutsun yhteydessä. Problem olion parametreina käytetään edellisissä kohdissa kerättyjä tietoja.
 
-Problems luokan add_problem metodi, purkaa tiedot tietokannan ymmärtämään muotoon, tarkistaa ettei saman nimistä ongelmaa ole jo olemassa ja muodostaa tietokantayhteyden, jonka kautta tiedot kirjoitetaan tietokantaan, problems tauluun. Sen jälkeen metodi välittää vielä tiedot reitistä ja käyttäjästä saman luokan add_to_uxp metodille.
+Problems luokan add_problem metodi, purkaa tiedot tietokannan ymmärtämään muotoon, tarkistaa ettei saman nimistä reittiä ole jo olemassa ja muodostaa tietokantayhteyden, jonka kautta tiedot kirjoitetaan tietokantaan, problems tauluun. Sen jälkeen metodi välittää vielä tiedot reitistä ja käyttäjästä saman luokan add_to_uxp metodille. Mikäli samanniminen reitti löytyy jo aiheutuu ohjelmassa Value error ja reitinlisäys prosessi keskeytyy. Ohjelma osaa odottaa sitä ja antaa käyttäjälle virheilmoituksen, jonka jälkeen ohjelman käyttöä voi jatkaa normaalisti.
 
 Add_to_uxp metodi viimeistelee reitin lisäämisen, lisäämällä sen ja tiedon käyttäjästä uxp tietokantaan. Tietokantaan lisätään myös numero 0 tiedoksi siitä että reittiä ei ole vielä merkitty kiivetyksi. Uxp tietokantaan lisäämisen jälkeen reitti näkyy käyttäjän päänäkymässä, ellei sitä poisteta tietokannasta.
 
 Kun uusi reitti on lisätty onnistuneesti, näkymään ilmestyy teksti, jossa asiasta kerrotaan käyttäjälle. Käyttäjä voi nyt joko poistua päänäkymään tai lisätä uuden ongelman.
+
 Oheinen kaavio kuvaa saman prosessin suurpiirteisesti. 
+
 ![sekvenssikaavio](./img/sekvenssikaavio.png)
