@@ -36,11 +36,12 @@ Uuden käyttäjän luodaksesi anna käyttäjänimi ja salasana, käyttäjänimen
 Luotuasi uuden käyttäjän ohjelma kirjaa sinut sisään automaattisesti.
 
 Päänäkymässä näet itsellesi tagaamasi reitit, tai mikäli niitä ei ole tyhjän näkymän jossa on muutama nappi.
-Uuden reitin pääset lisäämään painamalla New problem nappia. Uusi reitti lisätään omassa näkymässään. Lisää reitisä tiedot joita näkymässä pyydetään ja paina Create nappia. Uusi reitti luodaan ja lisätään automaattisesti listallesi kiipeämättömänä.
+Uuden reitin pääset lisäämään painamalla New problem nappia. Uusi reitti lisätään omassa näkymässään. Lisää reitisä tiedot, joita näkymässä pyydetään ja paina Create nappia. Uusi reitti luodaan ja lisätään automaattisesti listallesi kiipeämättömänä. Mikäli lisäsit reitille uuden kuvan valitsemasi kuva kopioidaan automaattisesti ohjelman kuvakansioon ```./data/img/```. Hyväksytyt kuvatiedoston muodot ovat .jpg, .jpeg, .gif, .png, sekä .bmp. Mikäli et lisää kuvaa, käytetään oletuskuvaa.
 Kaikkien käyttäjien lisäämiä reittejä, mikäli niitä on, pääset tarkastelemaan päänäkymän Browse problems-nappia paimalla. 
 Reittien tarkastelu aukeaa myös omaan näkymäänsä, painamalla tässä näkymässä tag/untag nappia lisätään reitti omalle listallesi, tai poistetaan sieltä.
 Päänäkymässä nappi Solved/unsolved merkitsee reitin kiivetyksi tai poistaa merkinnän.
 Sekä päänäkymässä että ongelmien selaus näkymässä on valikko josta voi valita järjestelyperusteen. order ^ / order v-nappi vaihtaa järjestyksen joko nousevaksi tai laskevaksi. 
+Reitin kuvaa klikkaamalla aukeaa kuva täysikokoisena järjestelmäsi oletus kuva-sovlluksessa.
 Sign out nappi palauttaa sinut sisäänkirjautumis ruutuun.
 
 
