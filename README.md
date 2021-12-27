@@ -15,7 +15,7 @@
  
  Testikattavuus on hyvä, testit testaavat reitin ja käyttäjän luomisesta huolehtivia luokkia sekä varsinaista sovelluslogiikkaa.
  
-  Ohjelmassa on viimeisimmässä versiossa otetty käyttöön ![Pillow](https://github.com/python-pillow/Pillow) kirjasto, jonka avulla on aikaansaatu kuvien käsittelyyn ja esittämiseen liittyvä toiminnallisuus. Pillow on laajennettu versio pythonin standardi PIL kirjastosta. 
+  Ohjelmassa on viimeisimmässä versiossa otetty käyttöön [Pillow](https://github.com/python-pillow/Pillow) kirjasto, jonka avulla on aikaansaatu kuvien käsittelyyn ja esittämiseen liittyvä toiminnallisuus. Pillow on laajennettu versio pythonin standardi PIL kirjastosta. 
 
 ### HUOM! 
 Sisään voi kirjautua joko luomalla uuden käyttäjän tai testikäyttäjänä
